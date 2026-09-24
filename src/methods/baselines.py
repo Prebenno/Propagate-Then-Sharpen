@@ -2,8 +2,8 @@
 
 import torch
 
-from graph_tv import GraphTVOperator, graph_tv
-from method import graph_operator, normalize, pts, sharpen
+from .graph_tv import GraphTVOperator, graph_tv
+from .pts import graph_operator, normalize, pts, sharpen
 
 
 def _operator(x, edge_index, operator, *, self_loops=True):

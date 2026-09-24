@@ -11,16 +11,16 @@ import optuna
 import torch
 import yaml
 
-from baselines import LABEL_AWARE, predict
-from diagnostics import diagnostic_rows, metrics
-from selection import tune
+from .methods.baselines import LABEL_AWARE, predict
+from .diagnostics import diagnostic_rows, metrics
+from .selection import tune
 
 MAIN_DATASETS = ('wikics', 'cora-tag', 'pubmed-tag', 'tape-arxiv23', 'ogbn-arxiv',
                  'ogbn-products', 'ele-photo', 'ele-computers', 'books-history')
 CALIBRATION_DATASETS = MAIN_DATASETS[:6]
 STAGES = ('main', 'external', 'mass', 'transfer', 'depth', 'energy',
           'calibration', 'per_node', 'timing')
-CONFIG = Path(__file__).with_name('config.yaml')
+CONFIG = Path(__file__).resolve().parents[1] / 'configs' / 'paper.yaml'
 
 
 def unit_info(folder):
@@ -204,8 +204,8 @@ def median_settings(run, dataset):
 
 
 def forward_callback(folder, graph, data_root, device):
-    from backbones import load_checkpoint, preprocess
-    from data import load_dataset
+    from .backbones import load_checkpoint, preprocess
+    from .data import load_dataset
     info = unit_info(folder)
     dataset = load_dataset(info['dataset'], data_root, splits=info['split'] + 1)
     split = torch.load(folder / 'split.pt', weights_only=True)
@@ -229,7 +229,7 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
     units = [p for p in units if (not datasets or unit_info(p)['dataset'] in datasets)
              and (not backbones or unit_info(p)['backbone'] in backbones)]
     if not units:
-        raise FileNotFoundError('No trained backbones found. Run generate_inputs.py first.')
+        raise FileNotFoundError('No trained backbones found. Run train.py first.')
     for folder in units:
         info = unit_info(folder)
         print('/'.join(str(info[k]) for k in ('dataset', 'backbone', 'split', 'seed')), flush=True)

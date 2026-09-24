@@ -6,8 +6,8 @@ import time
 
 import torch
 
-from backbones import Backbone, build_adjacency, preprocess, train
-from data import DATASETS, load_dataset
+from src.backbones import Backbone, build_adjacency, preprocess, train
+from src.data import DATASETS, load_dataset
 
 
 def context_name(sigma, draw):

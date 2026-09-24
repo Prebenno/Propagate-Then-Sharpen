@@ -6,8 +6,8 @@ import time
 import numpy as np
 import torch
 
-from baselines import LABEL_AWARE, predict
-from method import graph_operator, normalize, sharpen
+from .methods.baselines import LABEL_AWARE, predict
+from .methods.pts import graph_operator, normalize, sharpen
 
 DEPTHS = (1, 2, 3, 5, 10, 20, 40, 100)
 ALPHAS = (0.0, 0.1)
@@ -48,7 +48,7 @@ def predictor(data):
     return evaluate
 
 
-# ompare fixed depths
+#Compare fixed depths
 @torch.no_grad()
 def depth_predictions(data):
     q, logits, edges = data["q"], data["logits"], data["edges"]

@@ -5,8 +5,8 @@ from pathlib import Path
 
 import yaml
 
-from experiments import CONFIG, STAGES, run_experiments
-from generate_inputs import add_arguments, generate
+from src.experiments import CONFIG, STAGES, run_experiments
+from train import add_arguments, generate
 from report import build
 
 

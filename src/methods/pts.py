@@ -5,7 +5,7 @@ PtS main method here, propagate then sharpen
 import torch
 
 
-#Nromalize and save the results
+#Normalize each row
 def normalize(state):
     result = state / state.sum(1, keepdim=True) 
     return result
