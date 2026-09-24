@@ -1,0 +1,19 @@
+methods:
+  appnp: {}
+  ppr: {}
+  pts: {}
+  lame: {}
+  graph_tv: {epsilon: 1.0, max_iterations: 3000, gap_tolerance: 1.0e-05, gap_interval: 25}
+  ppr_rn: {}
+  pts_rn: {}
+  cs: {steps_correct: 50, steps_smooth: 50}
+  cs_pts: {steps_correct: 50, steps_smooth: 50}
+search:
+  trials: 250
+  max_steps: 100
+  eta_log10: [-2.0, 2.408]
+  graph_tv:
+    log10_grid: [-3.0, 3.0, 25]
+    select_gap: 0.001
+    drop_pp: 5.0
+    consecutive: 2
