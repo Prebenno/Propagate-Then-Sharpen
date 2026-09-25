@@ -54,7 +54,7 @@ bash run_all.sh --device cuda
 
 Each unit writes `<stage>.<access>.csv` under `runs/paper/<dataset>/<backbone>/split_<s>/seed_<k>/`, one row per severity, draw and method. Paper numbers average draws within a seed, seeds within a split, then splits; the reported SD is over splits, or over seed and draw for the single-split OGB graphs. Dataset means weight the nine main graphs equally and never include the two heterophilic controls. Differences between methods are taken within a unit, severity and draw before averaging.
 
-We did not run this as one job. The stages were spread over several GPU and CPU nodes on a cluster and submitted separately; rerunning the same command skips every unit whose checkpoint, predictions or selections already exist. Almost all of the compute goes to Graph-TV, roughly 60% of the total even with less tuning: it is a full primal–dual solve per candidate λ for every unit, severity and draw. APPNP, PPR-Prob and PtS are quick by comparison, milliseconds per propagation step (Table 19), the `main` stage is long only because of the 250 Optuna trials per unit, severity and draw.
+We did not run this as one job. The stages were spread over several GPU and CPU nodes on a cluster and submitted separately, rerunning the same command skips every unit whose checkpoint, predictions or selections already exist. Almost all of the compute goes to Graph-TV, roughly 60% of the total even with less tuning: it is a full primal–dual solve per candidate λ for every unit, severity and draw. APPNP, PPR-Prob and PtS are quick by comparison, milliseconds per propagation step (Table 19), the `main` stage is long only because of the 250 Optuna trials per unit, severity and draw.
 
 ## Data sources
 
