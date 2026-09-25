@@ -1,0 +1,9 @@
+sigma,method,temperature,raw_nll,cal_nll,raw_ece,cal_ece,accuracy_drift_pp,source_precision
+0,anchor,1.34,1.226,1.132,0.088,0.04,0.0,printed_table
+0,appnp,0.84,0.983,0.907,0.129,0.037,0.0,printed_table
+0,reaction_off,0.65,1.014,0.963,0.156,0.046,0.0,printed_table
+0,pts,2.11,1.591,0.932,0.158,0.05,0.0,printed_table
+2,anchor,3.55,3.514,2.112,0.302,0.047,0.0,printed_table
+2,appnp,1.47,2.108,1.752,0.178,0.075,0.0,printed_table
+2,reaction_off,0.9,1.989,1.823,0.22,0.118,0.0,printed_table
+2,pts,2.92,3.088,1.692,0.254,0.093,0.0,printed_table

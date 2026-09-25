@@ -1,0 +1,33 @@
+variable,bucket,sigma,pts_minus_appnp_pp,source_precision
+Local homophily,0-.2,0,-1.29,printed_two_decimals
+Local homophily,0-.2,2,-1.75,printed_two_decimals
+Local homophily,.2-.4,0,-0.51,printed_two_decimals
+Local homophily,.2-.4,2,-0.35,printed_two_decimals
+Local homophily,.4-.6,0,1.88,printed_two_decimals
+Local homophily,.4-.6,2,4.83,printed_two_decimals
+Local homophily,.6-.8,0,3.69,printed_two_decimals
+Local homophily,.6-.8,2,9.12,printed_two_decimals
+Local homophily,.8-1,0,1.9,printed_two_decimals
+Local homophily,.8-1,2,5.76,printed_two_decimals
+Local homophily,isolated,0,0.0,printed_two_decimals
+Local homophily,isolated,2,0.0,printed_two_decimals
+Degree quintile,Q1,0,1.27,printed_two_decimals
+Degree quintile,Q1,2,3.64,printed_two_decimals
+Degree quintile,Q2,0,1.63,printed_two_decimals
+Degree quintile,Q2,2,3.56,printed_two_decimals
+Degree quintile,Q3,0,1.86,printed_two_decimals
+Degree quintile,Q3,2,3.77,printed_two_decimals
+Degree quintile,Q4,0,1.95,printed_two_decimals
+Degree quintile,Q4,2,4.41,printed_two_decimals
+Degree quintile,Q5,0,2.04,printed_two_decimals
+Degree quintile,Q5,2,5.66,printed_two_decimals
+Anchor confidence quintile,Q1,0,3.41,printed_two_decimals
+Anchor confidence quintile,Q1,2,5.12,printed_two_decimals
+Anchor confidence quintile,Q2,0,2.3,printed_two_decimals
+Anchor confidence quintile,Q2,2,4.66,printed_two_decimals
+Anchor confidence quintile,Q3,0,1.6,printed_two_decimals
+Anchor confidence quintile,Q3,2,4.39,printed_two_decimals
+Anchor confidence quintile,Q4,0,0.95,printed_two_decimals
+Anchor confidence quintile,Q4,2,3.87,printed_two_decimals
+Anchor confidence quintile,Q5,0,0.48,printed_two_decimals
+Anchor confidence quintile,Q5,2,3.0,printed_two_decimals

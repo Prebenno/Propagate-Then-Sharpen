@@ -1,0 +1,479 @@
+contrast,left,right,dataset,regime,sigma,mean_pp,sd_pp,n_units,cells,wins,cell_unit
+PtS - APPNP,potts,appnp,amazon-ratings,heterophilic control,0.0,1.1165543988569095,0.34748289042248265,30,10,10,split
+PtS - APPNP,potts,appnp,amazon-ratings,heterophilic control,0.5,1.0011113379147676,0.1983525879403861,90,10,10,split
+PtS - APPNP,potts,appnp,amazon-ratings,heterophilic control,1.0,0.1138554353496171,0.10089746690471893,90,10,8,split
+PtS - APPNP,potts,appnp,amazon-ratings,heterophilic control,1.5,-0.033793744755165056,0.06664452186757291,90,10,2,split
+PtS - APPNP,potts,appnp,amazon-ratings,heterophilic control,2.0,0.039690639813113666,0.08121590892242274,90,10,8,split
+PtS - APPNP,potts,appnp,books-history,main,0.0,0.28600080224629043,0.22639721006155783,30,10,9,split
+PtS - APPNP,potts,appnp,books-history,main,0.5,0.2826581093729103,0.11514262383099395,90,10,10,split
+PtS - APPNP,potts,appnp,books-history,main,1.0,0.36542318491776954,0.16318678321357133,90,10,10,split
+PtS - APPNP,potts,appnp,books-history,main,1.5,0.6432678165530156,0.3570162632655372,90,10,10,split
+PtS - APPNP,potts,appnp,books-history,main,2.0,1.022997726968846,0.6086332004797548,90,10,10,split
+PtS - APPNP,potts,appnp,cora-tag,main,0.0,3.579790511398643,1.230384649574458,30,10,10,split
+PtS - APPNP,potts,appnp,cora-tag,main,0.5,3.347710002053809,1.052197591420794,90,10,10,split
+PtS - APPNP,potts,appnp,cora-tag,main,1.0,3.4565619223659887,1.3175029453059608,90,10,10,split
+PtS - APPNP,potts,appnp,cora-tag,main,1.5,3.7810638734853157,1.5374930581326436,90,10,10,split
+PtS - APPNP,potts,appnp,cora-tag,main,2.0,4.134319162045594,1.9859171573904055,90,10,10,split
+PtS - APPNP,potts,appnp,ele-computers,main,0.0,4.744162940884252,0.9612243307806139,30,10,10,split
+PtS - APPNP,potts,appnp,ele-computers,main,0.5,5.119607168787497,0.8533099560200306,90,10,10,split
+PtS - APPNP,potts,appnp,ele-computers,main,1.0,5.901193524144345,1.0477884972390434,90,10,10,split
+PtS - APPNP,potts,appnp,ele-computers,main,1.5,7.497356923586433,0.9767625718653014,90,10,10,split
+PtS - APPNP,potts,appnp,ele-computers,main,2.0,9.626721184098232,0.9955979371293129,90,10,10,split
+PtS - APPNP,potts,appnp,ele-photo,main,0.0,3.043523208932079,0.6331443958324438,30,10,10,split
+PtS - APPNP,potts,appnp,ele-photo,main,0.5,3.069253477606627,0.2673823430519819,90,10,10,split
+PtS - APPNP,potts,appnp,ele-photo,main,1.0,3.483464856358478,0.4139410866682922,90,10,10,split
+PtS - APPNP,potts,appnp,ele-photo,main,1.5,4.715760938235868,0.5946625349100015,90,10,10,split
+PtS - APPNP,potts,appnp,ele-photo,main,2.0,5.4564251007960305,1.0358657203263448,90,10,10,split
+PtS - APPNP,potts,appnp,ogbn-arxiv,main,0.0,0.45950524316057395,0.5062182582368485,3,3,3,seed x draw
+PtS - APPNP,potts,appnp,ogbn-arxiv,main,0.5,1.3979475432472181,0.9243856876466333,9,9,9,seed x draw
+PtS - APPNP,potts,appnp,ogbn-arxiv,main,1.0,4.946653955974367,1.5368997391114005,9,9,9,seed x draw
+PtS - APPNP,potts,appnp,ogbn-arxiv,main,1.5,8.437522146552453,0.5857799372032676,9,9,9,seed x draw
+PtS - APPNP,potts,appnp,ogbn-arxiv,main,2.0,6.756555951050117,1.7269065058973831,9,9,9,seed x draw
+PtS - APPNP,potts,appnp,ogbn-products,main,0.0,1.5847066388142188,0.2379496440528773,3,3,3,seed x draw
+PtS - APPNP,potts,appnp,ogbn-products,main,0.5,0.2880686886450774,1.3126922798826262,9,9,4,seed x draw
+PtS - APPNP,potts,appnp,ogbn-products,main,1.0,-1.2283824850501965,0.3574388232686583,9,9,0,seed x draw
+PtS - APPNP,potts,appnp,ogbn-products,main,1.5,-1.2988821717879853,0.2459261379588104,9,9,0,seed x draw
+PtS - APPNP,potts,appnp,ogbn-products,main,2.0,-1.2090430182139935,0.17348770735010843,9,9,0,seed x draw
+PtS - APPNP,potts,appnp,pubmed-tag,main,0.0,0.8299526707234612,0.6363273594388227,30,10,9,split
+PtS - APPNP,potts,appnp,pubmed-tag,main,0.5,0.8014987604237094,0.7083950166561784,90,10,8,split
+PtS - APPNP,potts,appnp,pubmed-tag,main,1.0,1.070261437908496,0.8256768649239137,90,10,8,split
+PtS - APPNP,potts,appnp,pubmed-tag,main,1.5,1.4858012170385395,1.0829683029351378,90,10,9,split
+PtS - APPNP,potts,appnp,pubmed-tag,main,2.0,1.8554203290511608,1.4389540740893385,90,10,9,split
+PtS - APPNP,potts,appnp,roman-empire,heterophilic control,0.0,-0.11250827266710857,0.13448140364017502,30,10,1,split
+PtS - APPNP,potts,appnp,roman-empire,heterophilic control,0.5,0.028188347182390838,0.04895848635626695,90,10,7,split
+PtS - APPNP,potts,appnp,roman-empire,heterophilic control,1.0,-0.010785106748045226,0.04331462762942226,90,10,4,split
+PtS - APPNP,potts,appnp,roman-empire,heterophilic control,1.5,-0.007108365811211499,0.031947733802488,90,10,4,split
+PtS - APPNP,potts,appnp,roman-empire,heterophilic control,2.0,-0.006863249748755974,0.022190187444198418,90,10,2,split
+PtS - APPNP,potts,appnp,tape-arxiv23,main,0.0,0.1879712811631858,0.09941114040286399,30,10,10,split
+PtS - APPNP,potts,appnp,tape-arxiv23,main,0.5,-0.008899472044834442,0.0756037667286598,90,10,4,split
+PtS - APPNP,potts,appnp,tape-arxiv23,main,1.0,-0.028382100034875447,0.07220062900844744,90,10,4,split
+PtS - APPNP,potts,appnp,tape-arxiv23,main,1.5,1.023800074563144,0.33100754108025865,90,10,10,split
+PtS - APPNP,potts,appnp,tape-arxiv23,main,2.0,3.287513078616012,0.25726518292606815,90,10,10,split
+PtS - APPNP,potts,appnp,wikics,main,0.0,0.6430648195655885,0.5031681481987285,30,10,10,split
+PtS - APPNP,potts,appnp,wikics,main,0.5,0.4904699466012962,0.4157491420169931,90,10,9,split
+PtS - APPNP,potts,appnp,wikics,main,1.0,0.8097219846835035,0.59274195110604,90,10,9,split
+PtS - APPNP,potts,appnp,wikics,main,1.5,2.1893468635387574,0.9313109635517944,90,10,10,split
+PtS - APPNP,potts,appnp,wikics,main,2.0,4.176500769625448,1.750877796811686,90,10,10,split
+PtS - PPR-Prob,potts,ppr,amazon-ratings,heterophilic control,0.0,-0.026536027760768098,0.15323772128528046,30,10,4,split
+PtS - PPR-Prob,potts,ppr,amazon-ratings,heterophilic control,0.5,-0.07030913338322978,0.07769657557128642,90,10,2,split
+PtS - PPR-Prob,potts,ppr,amazon-ratings,heterophilic control,1.0,0.0038556621532737103,0.03961749122979183,90,10,5,split
+PtS - PPR-Prob,potts,ppr,amazon-ratings,heterophilic control,1.5,-0.012701004740196229,0.06481630704153342,90,10,3,split
+PtS - PPR-Prob,potts,ppr,amazon-ratings,heterophilic control,2.0,-0.021319543671044182,0.0664448268423722,90,10,6,split
+PtS - PPR-Prob,potts,ppr,books-history,main,0.0,0.008022462896110449,0.18152761330099876,30,10,5,split
+PtS - PPR-Prob,potts,ppr,books-history,main,0.5,0.01818424923118036,0.08646937642053798,90,10,6,split
+PtS - PPR-Prob,potts,ppr,books-history,main,1.0,0.06070330258055873,0.0960778812881086,90,10,7,split
+PtS - PPR-Prob,potts,ppr,books-history,main,1.5,0.10094932477604057,0.19007330147524812,90,10,7,split
+PtS - PPR-Prob,potts,ppr,books-history,main,2.0,0.2335873779917103,0.1919170757033559,90,10,9,split
+PtS - PPR-Prob,potts,ppr,cora-tag,main,0.0,1.3185459026494128,0.8488970157204369,30,10,10,split
+PtS - PPR-Prob,potts,ppr,cora-tag,main,0.5,1.0330663380570957,0.5881256137669139,90,10,10,split
+PtS - PPR-Prob,potts,ppr,cora-tag,main,1.0,1.0412815773259392,0.5483710672676296,90,10,10,split
+PtS - PPR-Prob,potts,ppr,cora-tag,main,1.5,1.6882316697473811,0.7565284345070753,90,10,10,split
+PtS - PPR-Prob,potts,ppr,cora-tag,main,2.0,1.8278907373177238,0.6504091395365854,90,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-computers,main,0.0,1.4026137796629587,0.40295951497727733,30,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-computers,main,0.5,1.3058708140675352,0.2738293632542539,90,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-computers,main,1.0,1.8646744876253076,0.5408435683281257,90,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-computers,main,1.5,2.284000152852612,0.6077245499146253,90,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-computers,main,2.0,2.7162546015005025,0.6417114337363534,90,10,10,split
+PtS - PPR-Prob,potts,ppr,ele-photo,main,0.0,0.478307315896482,0.6258775971911236,30,10,8,split
+PtS - PPR-Prob,potts,ppr,ele-photo,main,0.5,0.1533478066094624,0.2532198841189076,90,10,7,split
+PtS - PPR-Prob,potts,ppr,ele-photo,main,1.0,0.15897630288202014,0.2410414253870345,90,10,8,split
+PtS - PPR-Prob,potts,ppr,ele-photo,main,1.5,0.5775526379268754,0.47504859395881943,90,10,9,split
+PtS - PPR-Prob,potts,ppr,ele-photo,main,2.0,0.4242048313174127,0.40946097870328096,90,10,8,split
+PtS - PPR-Prob,potts,ppr,ogbn-arxiv,main,0.0,0.5994143022721535,0.4079136042893994,3,3,3,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-arxiv,main,0.5,0.8975211863922435,0.28391031150840534,9,9,9,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-arxiv,main,1.0,0.3109090202479477,0.2254202264325266,9,9,8,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-arxiv,main,1.5,1.6942255507776152,1.6472833877980566,9,9,9,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-arxiv,main,2.0,0.18220183024824768,0.2211872055432636,9,9,6,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-products,main,0.0,0.8450322798896792,0.17827705014296336,3,3,3,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-products,main,0.5,-0.5405712342300139,0.5044803791526002,9,9,2,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-products,main,1.0,0.02238196862819095,0.06246134027560236,9,9,4,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-products,main,1.5,0.07036915035727577,0.07623135932761337,9,9,7,seed x draw
+PtS - PPR-Prob,potts,ppr,ogbn-products,main,2.0,0.0948999486339339,0.15404132092587525,9,9,6,seed x draw
+PtS - PPR-Prob,potts,ppr,pubmed-tag,main,0.0,0.22903989181879636,0.18625417631616523,30,10,9,split
+PtS - PPR-Prob,potts,ppr,pubmed-tag,main,0.5,0.2214334009465851,0.16140694465624833,90,10,9,split
+PtS - PPR-Prob,potts,ppr,pubmed-tag,main,1.0,0.29101870633310856,0.2150663625326319,90,10,10,split
+PtS - PPR-Prob,potts,ppr,pubmed-tag,main,1.5,0.37835249042145586,0.22410636985511392,90,10,10,split
+PtS - PPR-Prob,potts,ppr,pubmed-tag,main,2.0,0.5062542258282623,0.26802283648415126,90,10,10,split
+PtS - PPR-Prob,potts,ppr,roman-empire,heterophilic control,0.0,-0.005882785498933692,0.013778924256739699,30,10,2,split
+PtS - PPR-Prob,potts,ppr,roman-empire,heterophilic control,0.5,-0.006863249748755915,0.03318484861231657,90,10,6,split
+PtS - PPR-Prob,potts,ppr,roman-empire,heterophilic control,1.0,-0.004902321249111471,0.017561900188906618,90,10,5,split
+PtS - PPR-Prob,potts,ppr,roman-empire,heterophilic control,1.5,0.0017158124371891934,0.02108726392386019,90,10,6,split
+PtS - PPR-Prob,potts,ppr,roman-empire,heterophilic control,2.0,-0.006863249748755849,0.034506367920186506,90,10,5,split
+PtS - PPR-Prob,potts,ppr,tape-arxiv23,main,0.0,0.03932604538730715,0.05320063794368568,30,10,8,split
+PtS - PPR-Prob,potts,ppr,tape-arxiv23,main,0.5,0.00781710382316447,0.044586655390594206,90,10,5,split
+PtS - PPR-Prob,potts,ppr,tape-arxiv23,main,1.0,0.004930788565381043,0.033349747938741216,90,10,5,split
+PtS - PPR-Prob,potts,ppr,tape-arxiv23,main,1.5,0.02465394282690504,0.03720714154170249,90,10,8,split
+PtS - PPR-Prob,potts,ppr,tape-arxiv23,main,2.0,0.6505033012230759,0.37169435871341266,90,10,10,split
+PtS - PPR-Prob,potts,ppr,wikics,main,0.0,0.18299982897212314,0.33230381412949384,30,10,7,split
+PtS - PPR-Prob,potts,ppr,wikics,main,0.5,0.13017121790851893,0.3239447577170377,90,10,7,split
+PtS - PPR-Prob,potts,ppr,wikics,main,1.0,0.44999334891587306,0.28047982534624605,90,10,9,split
+PtS - PPR-Prob,potts,ppr,wikics,main,1.5,1.2863196701062274,0.543265917381856,90,10,10,split
+PtS - PPR-Prob,potts,ppr,wikics,main,2.0,3.1651559204150272,0.9124641123042646,90,10,10,split
+PtS - LAME (tuned),potts,lame,amazon-ratings,heterophilic control,0.0,0.6953800095257533,0.3575133591498956,30,10,10,split
+PtS - LAME (tuned),potts,lame,amazon-ratings,heterophilic control,2.0,0.051257626272935654,0.07392082887559895,90,10,7,split
+PtS - LAME (tuned),potts,lame,books-history,main,0.0,-0.06859205776173234,0.13588874983029783,30,10,3,split
+PtS - LAME (tuned),potts,lame,books-history,main,2.0,1.4768017114587502,0.5442556436337634,90,10,10,split
+PtS - LAME (tuned),potts,lame,cora-tag,main,0.0,2.9636475662353656,0.9246478981606867,30,10,10,split
+PtS - LAME (tuned),potts,lame,cora-tag,main,2.0,8.354898336414047,2.248331371358839,90,10,10,split
+PtS - LAME (tuned),potts,lame,ele-computers,main,0.0,1.7937254002827765,0.5852401175873289,30,10,10,split
+PtS - LAME (tuned),potts,lame,ele-computers,main,2.0,7.115543836855312,1.5423690482420183,90,10,10,split
+PtS - LAME (tuned),potts,lame,ele-photo,main,0.0,0.07305558427237346,0.35335383159503536,30,10,8,split
+PtS - LAME (tuned),potts,lame,ele-photo,main,2.0,1.8506266009625882,0.74104643423756,90,10,10,split
+PtS - LAME (tuned),potts,lame,ogbn-arxiv,main,0.0,-0.9718192978485566,0.3216024848919497,3,3,0,seed x draw
+PtS - LAME (tuned),potts,lame,ogbn-arxiv,main,2.0,0.23981144282360276,0.3128209823729382,9,9,7,seed x draw
+PtS - LAME (tuned),potts,lame,ogbn-products,main,0.0,0.765354881475729,0.1795934176427964,3,3,3,seed x draw
+PtS - LAME (tuned),potts,lame,ogbn-products,main,2.0,-0.14799813172315843,0.4832917966528558,6,6,1,seed x draw
+PtS - LAME (tuned),potts,lame,pubmed-tag,main,0.0,0.13353617308992574,0.2260034692458733,30,10,7,split
+PtS - LAME (tuned),potts,lame,pubmed-tag,main,2.0,6.859646157313499,2.974978783706746,90,10,10,split
+PtS - LAME (tuned),potts,lame,roman-empire,heterophilic control,0.0,-0.01323626737260053,0.01691123201280439,30,10,2,split
+PtS - LAME (tuned),potts,lame,roman-empire,heterophilic control,2.0,0.0058827854989337855,0.04385073911526552,90,10,4,split
+PtS - LAME (tuned),potts,lame,tape-arxiv23,main,0.0,-0.09813471876465715,0.06968623506617827,30,10,1,split
+PtS - LAME (tuned),potts,lame,tape-arxiv23,main,2.0,3.6575627472910726,0.25652067025755076,90,10,10,split
+PtS - LAME (tuned),potts,lame,wikics,main,0.0,0.24057921441194932,0.33210108096390567,30,10,7,split
+PtS - LAME (tuned),potts,lame,wikics,main,2.0,4.3448682135188035,0.8646287317109425,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,amazon-ratings,heterophilic control,0.0,2.6665305844730214,0.4124142452561921,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,amazon-ratings,heterophilic control,2.0,0.3633394570320475,0.19545159542564083,90,10,9,split
+PtS - LAME (published defaults),potts,lame_default,books-history,main,0.0,1.0998796630565593,0.19673489829390417,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,books-history,main,2.0,2.695413825377724,0.9132360805176128,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,cora-tag,main,0.0,6.789895255699321,1.8615721306886939,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,cora-tag,main,2.0,17.385500102690493,3.6402777196708977,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,ele-computers,main,0.0,2.351255302074974,0.3967673306259226,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,ele-computers,main,2.0,6.834040276663226,2.265254998746615,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,ele-photo,main,0.0,7.001964230331851,1.6821333908603917,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,ele-photo,main,2.0,5.767370803037091,1.2554587446908718,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,ogbn-arxiv,main,0.0,7.966586424706297,0.4732083990050059,3,3,3,seed x draw
+PtS - LAME (published defaults),potts,lame_default,ogbn-arxiv,main,2.0,9.129751935751566,0.9953832268859834,9,9,9,seed x draw
+PtS - LAME (published defaults),potts,lame_default,ogbn-products,main,0.0,-0.3414681095354884,0.1685601203802961,3,3,0,seed x draw
+PtS - LAME (published defaults),potts,lame_default,ogbn-products,main,2.0,1.433967243100259,0.13336581898993038,6,6,6,seed x draw
+PtS - LAME (published defaults),potts,lame_default,pubmed-tag,main,0.0,0.18931710615280536,0.562713635564495,30,10,6,split
+PtS - LAME (published defaults),potts,lame_default,pubmed-tag,main,2.0,7.290962361956278,3.8121136258804866,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,roman-empire,heterophilic control,0.0,1.4067210824325316,0.24292597093775858,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,roman-empire,heterophilic control,2.0,0.4054219673015174,0.21548910065640964,90,10,9,split
+PtS - LAME (published defaults),potts,lame_default,tape-arxiv23,main,0.0,0.7006530288270737,0.0936632896394478,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,tape-arxiv23,main,2.0,6.405936188380176,0.404383172037644,90,10,10,split
+PtS - LAME (published defaults),potts,lame_default,wikics,main,0.0,1.8579328430534168,1.466523220721262,30,10,10,split
+PtS - LAME (published defaults),potts,lame_default,wikics,main,2.0,8.674723980008743,2.0762397887167494,90,10,10,split
+PtS - Graph-TV,potts,graphtv,amazon-ratings,heterophilic control,0.0,0.38511260801524116,0.38756491191811177,30,10,7,split
+PtS - Graph-TV,potts,graphtv,amazon-ratings,heterophilic control,2.0,0.04377310562246285,0.07329849089200216,90,10,7,split
+PtS - Graph-TV,potts,graphtv,books-history,main,0.0,-0.09105495387083717,0.21640873508998798,30,10,3,split
+PtS - Graph-TV,potts,graphtv,books-history,main,2.0,0.2279716539644335,0.48561667307097456,90,10,7,split
+PtS - Graph-TV,potts,graphtv,cora-tag,main,0.0,2.920517560073936,0.6567054883289828,30,10,10,split
+PtS - Graph-TV,potts,graphtv,cora-tag,main,2.0,3.579790511398644,1.6102023234789211,90,10,10,split
+PtS - Graph-TV,potts,graphtv,ele-computers,main,0.0,3.639420688601015,0.7746369448772449,30,10,10,split
+PtS - Graph-TV,potts,graphtv,ele-computers,main,2.0,9.918605984179752,1.0091154487860872,90,10,10,split
+PtS - Graph-TV,potts,graphtv,ele-photo,main,0.0,2.8784589406940273,0.43131413630851956,30,10,10,split
+PtS - Graph-TV,potts,graphtv,ele-photo,main,2.0,4.361854876689985,0.9999879032111476,90,10,10,split
+PtS - Graph-TV,potts,graphtv,ogbn-arxiv,main,0.0,0.754411593248705,0.694974645692551,3,3,3,seed x draw
+PtS - Graph-TV,potts,graphtv,ogbn-arxiv,main,2.0,5.363409208850848,1.0061095651440342,9,9,9,seed x draw
+PtS - Graph-TV,potts,graphtv,pubmed-tag,main,0.0,0.07352941176470636,0.4026169442851295,30,10,8,split
+PtS - Graph-TV,potts,graphtv,pubmed-tag,main,2.0,1.081530313274735,0.9309225317583807,90,10,10,split
+PtS - Graph-TV,potts,graphtv,roman-empire,heterophilic control,0.0,-0.028678579307301888,0.03296788259645514,30,10,0,split
+PtS - Graph-TV,potts,graphtv,roman-empire,heterophilic control,2.0,-0.01691300830943432,0.04327222314582545,90,10,3,split
+PtS - Graph-TV,potts,graphtv,tape-arxiv23,main,0.0,-0.0934444564707578,0.14614272142944518,30,10,4,split
+PtS - Graph-TV,potts,graphtv,tape-arxiv23,main,2.0,2.377000877920891,0.2670577356335358,90,10,10,split
+PtS - Graph-TV,potts,graphtv,wikics,main,0.0,0.24114930733709555,0.2132931570064081,30,10,8,split
+PtS - Graph-TV,potts,graphtv,wikics,main,2.0,7.047108678714631,1.6119198033612285,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,amazon-ratings,heterophilic control,0.0,0.622576035925699,0.31455058829178784,30,10,10,split
+PtS - Coupled Potts solver,potts,coupled,amazon-ratings,heterophilic control,0.5,0.39758680909936295,0.1694649842378569,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,amazon-ratings,heterophilic control,1.0,0.35721575831802366,0.17526524723782502,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,amazon-ratings,heterophilic control,1.5,0.11476264997391769,0.1104771553351012,90,10,9,split
+PtS - Coupled Potts solver,potts,coupled,amazon-ratings,heterophilic control,2.0,0.0768864394094037,0.0748142723407685,90,10,9,split
+PtS - Coupled Potts solver,potts,coupled,books-history,main,0.0,-0.060569594865623744,0.10411101232091971,30,10,2,split
+PtS - Coupled Potts solver,potts,coupled,books-history,main,0.5,-0.08410215269421131,0.033980646551721,90,10,0,split
+PtS - Coupled Potts solver,potts,coupled,books-history,main,1.0,0.02179435753442902,0.08450320531803969,90,10,8,split
+PtS - Coupled Potts solver,potts,coupled,books-history,main,1.5,0.5556892632704914,0.2847804834422392,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,books-history,main,2.0,1.4845567589249893,0.5504248783436808,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,cora-tag,main,0.0,2.939001848428834,0.9203497390743715,30,10,10,split
+PtS - Coupled Potts solver,potts,coupled,cora-tag,main,0.5,3.353871431505442,1.031188437181786,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,cora-tag,main,1.0,4.512220168412404,1.0377126886697894,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,cora-tag,main,1.5,6.38734853152598,1.5716081718695138,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,cora-tag,main,2.0,8.437050729102484,2.3020755929147882,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-computers,main,0.0,1.7797775994497296,0.584388696558446,30,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-computers,main,0.5,2.1934349803202258,0.8377745263339178,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-computers,main,1.0,3.659355216732267,1.3350539971208808,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-computers,main,1.5,5.580394104984269,1.5222122128543418,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-computers,main,2.0,7.111722521558588,1.5473341191984988,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-photo,main,0.0,0.09028567490264963,0.3667588023838125,30,10,8,split
+PtS - Coupled Potts solver,potts,coupled,ele-photo,main,0.5,-0.0805219568788271,0.2741522661615676,90,10,5,split
+PtS - Coupled Potts solver,potts,coupled,ele-photo,main,1.0,0.2524782613689886,0.3185315423911783,90,10,8,split
+PtS - Coupled Potts solver,potts,coupled,ele-photo,main,1.5,1.1300642108044152,0.6159844316243182,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ele-photo,main,2.0,1.909323776376397,0.7386910873333814,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,ogbn-arxiv,main,0.0,-0.9018647682927631,0.319833781006477,3,3,0,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-arxiv,main,0.5,-0.5719811534267408,0.33489656207277285,9,9,1,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-arxiv,main,1.0,0.9670184968006078,0.22113908758791503,9,9,9,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-arxiv,main,1.5,1.8078445089123434,0.1947261472050784,9,9,9,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-arxiv,main,2.0,0.23615368964421524,0.30690662855273554,9,9,7,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-products,main,0.0,0.7729159502855206,0.05855383519781485,3,3,3,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-products,main,0.5,-0.19692668158095006,0.4266665661750092,6,6,1,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-products,main,1.0,-0.5212844840090177,0.14149302477508738,6,6,0,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-products,main,1.5,-0.5511898667218537,0.12078252758913281,6,6,0,seed x draw
+PtS - Coupled Potts solver,potts,coupled,ogbn-products,main,2.0,-0.3423266372688703,0.1742558500758048,6,6,0,seed x draw
+PtS - Coupled Potts solver,potts,coupled,pubmed-tag,main,0.0,0.11578769438809904,0.2061407365535275,30,10,7,split
+PtS - Coupled Potts solver,potts,coupled,pubmed-tag,main,0.5,0.4769551498760419,0.39886851215736013,90,10,9,split
+PtS - Coupled Potts solver,potts,coupled,pubmed-tag,main,1.0,2.083896777101646,1.159328854824001,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,pubmed-tag,main,1.5,4.531778228532792,2.217980647266078,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,pubmed-tag,main,2.0,6.853729997746226,2.9942122019201967,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,roman-empire,heterophilic control,0.0,-0.002941392749467031,0.013514767019232082,30,10,2,split
+PtS - Coupled Potts solver,potts,coupled,roman-empire,heterophilic control,0.5,0.0034316248743783266,0.027299860679315956,90,10,7,split
+PtS - Coupled Potts solver,potts,coupled,roman-empire,heterophilic control,1.0,-0.018873936809079315,0.022287746992276845,90,10,2,split
+PtS - Coupled Potts solver,potts,coupled,roman-empire,heterophilic control,1.5,-0.00514743731156681,0.02584912587591268,90,10,6,split
+PtS - Coupled Potts solver,potts,coupled,roman-empire,heterophilic control,2.0,0.002696276687011446,0.032135246567116686,90,10,6,split
+PtS - Coupled Potts solver,potts,coupled,tape-arxiv23,main,0.0,-0.11184471623913042,0.08335545429959336,30,10,0,split
+PtS - Coupled Potts solver,potts,coupled,tape-arxiv23,main,0.5,-0.02260946951930909,0.0735012324762497,90,10,4,split
+PtS - Coupled Potts solver,potts,coupled,tape-arxiv23,main,1.0,0.7197748674098927,0.16743639602513632,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,tape-arxiv23,main,1.5,2.155596445021707,0.2021114142488924,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,tape-arxiv23,main,2.0,3.659486957462929,0.2551433750294368,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,wikics,main,0.0,0.24685023658856348,0.3394386236060577,30,10,7,split
+PtS - Coupled Potts solver,potts,coupled,wikics,main,0.5,0.4334606540866159,0.23410679820165986,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,wikics,main,1.0,1.3475096440719834,0.39363020432465656,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,wikics,main,1.5,2.840012922106304,0.6093082108956427,90,10,10,split
+PtS - Coupled Potts solver,potts,coupled,wikics,main,2.0,4.334606540866161,0.8647506787771287,90,10,10,split
+PtS - PtS without mass preservation,potts,potts_norm,amazon-ratings,heterophilic control,0.0,0.049670000680411094,0.1371008872240334,30,10,7,split
+PtS - PtS without mass preservation,potts,potts_norm,amazon-ratings,heterophilic control,2.0,-0.017690685173845026,0.07314823252556739,90,10,5,split
+PtS - PtS without mass preservation,potts,potts_norm,books-history,main,0.0,-0.0232651423987155,0.16555801351897806,30,10,4,split
+PtS - PtS without mass preservation,potts,potts_norm,books-history,main,2.0,0.042251637919507534,0.08762634160302729,90,10,7,split
+PtS - PtS without mass preservation,potts,potts_norm,cora-tag,main,0.0,0.5914972273567453,0.66118642384186,30,10,8,split
+PtS - PtS without mass preservation,potts,potts_norm,cora-tag,main,2.0,1.0577120558636266,0.6021590746963668,90,10,10,split
+PtS - PtS without mass preservation,potts,potts_norm,ele-computers,main,0.0,0.4455653635981494,0.15480860495858523,30,10,10,split
+PtS - PtS without mass preservation,potts,potts_norm,ele-computers,main,2.0,2.144776898875259,0.36856715595389233,90,10,10,split
+PtS - PtS without mass preservation,potts,potts_norm,ele-photo,main,0.0,-0.011027258003376936,0.30304851069945693,30,10,7,split
+PtS - PtS without mass preservation,potts,potts_norm,ele-photo,main,2.0,0.6959807941923108,0.5451308161296389,90,10,9,split
+PtS - PtS without mass preservation,potts,potts_norm,ogbn-arxiv,main,0.0,-0.8881481938700605,0.33906930842357297,3,3,0,seed x draw
+PtS - PtS without mass preservation,potts,potts_norm,ogbn-arxiv,main,2.0,-1.0650920039229403,0.287035911945841,9,9,0,seed x draw
+PtS - PtS without mass preservation,potts,potts_norm,ogbn-products,main,0.0,0.2381586056184178,0.11198874631879317,3,3,3,seed x draw
+PtS - PtS without mass preservation,potts,potts_norm,ogbn-products,main,2.0,-0.11566778471076751,0.1366100823332856,6,6,1,seed x draw
+PtS - PtS without mass preservation,potts,potts_norm,pubmed-tag,main,0.0,0.06507775524002686,0.15776677048125157,30,10,8,split
+PtS - PtS without mass preservation,potts,potts_norm,pubmed-tag,main,2.0,0.09522199684471544,0.1284286544793404,90,10,8,split
+PtS - PtS without mass preservation,potts,potts_norm,roman-empire,heterophilic control,0.0,-0.000735348187366203,0.017827876114388356,30,10,2,split
+PtS - PtS without mass preservation,potts,potts_norm,roman-empire,heterophilic control,2.0,0.003431624874378019,0.03735641704025838,90,10,4,split
+PtS - PtS without mass preservation,potts,potts_norm,tape-arxiv23,main,0.0,-0.027780784356171335,0.05872117772738536,30,10,4,split
+PtS - PtS without mass preservation,potts,potts_norm,tape-arxiv23,main,2.0,0.21851811764139928,0.1600318832180056,90,10,9,split
+PtS - PtS without mass preservation,potts,potts_norm,wikics,main,0.0,0.1801493643463888,0.27082180920814997,30,10,8,split
+PtS - PtS without mass preservation,potts,potts_norm,wikics,main,2.0,2.484084905839651,0.4201454549629728,90,10,10,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,amazon-ratings,heterophilic control,0.0,0.01973191807851937,0.15343900124413037,30,10,5,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,amazon-ratings,heterophilic control,2.0,-0.014061826676645744,0.05880200387882023,90,10,5,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,books-history,main,0.0,0.0152426795026069,0.07140042055157261,30,10,7,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,books-history,main,2.0,0.04278646877924823,0.05812143112888358,90,10,8,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,cora-tag,main,0.0,0.16635859519408713,0.5751034228249525,30,10,7,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,cora-tag,main,2.0,0.5031834052166774,0.46008701673766556,90,10,9,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ele-computers,main,0.0,0.006305170239597762,0.32671693317966694,30,10,6,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ele-computers,main,2.0,1.1021310201638077,0.4896834982921097,90,10,10,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ele-photo,main,0.0,-0.34287880354250677,0.47279918464036996,30,10,3,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ele-photo,main,2.0,0.4043327934571603,0.3204661904788714,90,10,10,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ogbn-arxiv,main,0.0,-1.1137858431235381,0.31500599195978923,3,3,0,seed x draw
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ogbn-arxiv,main,2.0,-0.16802803667812072,1.1133486153987224,9,9,1,seed x draw
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ogbn-products,main,0.0,0.6005778042264617,0.04989890063241068,3,3,3,seed x draw
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,ogbn-products,main,2.0,-0.25799511482657855,0.26426928059231697,6,6,1,seed x draw
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,pubmed-tag,main,0.0,0.03127112914131221,0.07848369222431745,30,10,7,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,pubmed-tag,main,2.0,0.14170610773044884,0.17461227529173756,90,10,7,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,roman-empire,heterophilic control,0.0,-0.0044120891241994364,0.009926443969564278,30,10,2,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,roman-empire,heterophilic control,2.0,0.0017158124371889779,0.03425881239266375,90,10,4,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,tape-arxiv23,main,0.0,-0.08262077425406743,0.04260269599418834,30,10,0,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,tape-arxiv23,main,2.0,0.19482627990042214,0.09969355359589718,90,10,10,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,wikics,main,0.0,0.15164471808904717,0.2681417190286742,30,10,7,split
+"PPR-Prob - PPR-Prob, renormalised each step",ppr,ppr_norm,wikics,main,2.0,1.0056439199589533,0.423341170270419,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,amazon-ratings,heterophilic control,0.0,-0.05647411036265981,0.07172519947605639,30,10,2,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,amazon-ratings,heterophilic control,2.0,-0.017690685173844905,0.02820239600260691,90,10,2,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,books-history,main,0.0,0.046530284797432854,0.1043125860388593,30,10,7,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,books-history,main,2.0,0.23412220885145105,0.1382860006964591,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,cora-tag,main,0.0,0.8934072704867546,0.7664041140704572,30,10,9,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,cora-tag,main,2.0,1.2733620866707747,0.7842817000955534,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ele-computers,main,0.0,0.9633535863044068,0.28420071822349857,30,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ele-computers,main,2.0,1.6736087227890508,0.5725524032190987,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ele-photo,main,0.0,0.14645577035735216,0.38318265033587257,30,10,6,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ele-photo,main,2.0,0.13255683058226245,0.21788019847279094,90,10,8,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ogbn-arxiv,main,0.0,0.3737766530186759,0.10275765114453528,3,3,3,seed x draw
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ogbn-arxiv,main,2.0,1.0792657974930675,1.2848371437783246,9,9,8,seed x draw
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ogbn-products,main,0.0,1.207451478497723,0.24217683056470465,3,3,3,seed x draw
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,ogbn-products,main,2.0,-0.06566230971372933,0.11384211724981966,6,6,3,seed x draw
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,pubmed-tag,main,0.0,0.19523326572008173,0.11094621287687385,30,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,pubmed-tag,main,2.0,0.5527383367139957,0.28982474960897925,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,roman-empire,heterophilic control,0.0,-0.009559526435766925,0.031207808972035875,30,10,3,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,roman-empire,heterophilic control,2.0,-0.00857906218594489,0.025818116216592413,90,10,4,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,tape-arxiv23,main,0.0,-0.015513944510588962,0.03659834658271979,30,10,2,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,tape-arxiv23,main,2.0,0.6268114634820987,0.2860672155130109,90,10,10,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,wikics,main,0.0,0.15449518271478152,0.234754794061666,30,10,6,split
+"PtS without mass preservation - PPR-Prob, renormalised each step",potts_norm,ppr_norm,wikics,main,2.0,1.6867149345343297,0.5312257663712657,90,10,10,split
+LAME (tuned) - APPNP,lame,appnp,amazon-ratings,heterophilic control,0.0,0.42117438933115625,0.372226882378939,30,10,9,split
+LAME (tuned) - APPNP,lame,appnp,amazon-ratings,heterophilic control,2.0,-0.011566986459821984,0.1119023180304052,90,10,5,split
+LAME (tuned) - APPNP,lame,appnp,books-history,main,0.0,0.3545928600080228,0.13709051425463306,30,10,10,split
+LAME (tuned) - APPNP,lame,appnp,books-history,main,2.0,-0.45380398448990433,0.6694326893764565,90,10,2,split
+LAME (tuned) - APPNP,lame,appnp,cora-tag,main,0.0,0.6161429451632772,1.8277753511018264,30,10,6,split
+LAME (tuned) - APPNP,lame,appnp,cora-tag,main,2.0,-4.220579174368453,2.939799168337118,90,10,1,split
+LAME (tuned) - APPNP,lame,appnp,ele-computers,main,0.0,2.9504375406014747,1.3280128424931636,30,10,10,split
+LAME (tuned) - APPNP,lame,appnp,ele-computers,main,2.0,2.511177347242921,1.435739449899982,90,10,9,split
+LAME (tuned) - APPNP,lame,appnp,ele-photo,main,0.0,2.970467624659706,0.5630301040322852,30,10,10,split
+LAME (tuned) - APPNP,lame,appnp,ele-photo,main,2.0,3.605798499833442,0.4580010478135602,90,10,10,split
+LAME (tuned) - APPNP,lame,appnp,ogbn-arxiv,main,0.0,1.4313245410091306,0.45578001420780606,3,3,3,seed x draw
+LAME (tuned) - APPNP,lame,appnp,ogbn-arxiv,main,2.0,6.516744508226516,1.4520940910834206,9,9,9,seed x draw
+LAME (tuned) - APPNP,lame,appnp,ogbn-products,main,0.0,0.8193517573384898,0.37384181466117666,3,3,3,seed x draw
+LAME (tuned) - APPNP,lame,appnp,ogbn-products,main,2.0,-1.074424865493558,0.4163795128474952,6,6,0,seed x draw
+LAME (tuned) - APPNP,lame,appnp,pubmed-tag,main,0.0,0.6964164976335356,0.7097065776300778,30,10,7,split
+LAME (tuned) - APPNP,lame,appnp,pubmed-tag,main,2.0,-5.0042258282623395,3.492460657937483,90,10,0,split
+LAME (tuned) - APPNP,lame,appnp,roman-empire,heterophilic control,0.0,-0.09927200529450804,0.14086178408407027,30,10,3,split
+LAME (tuned) - APPNP,lame,appnp,roman-empire,heterophilic control,2.0,-0.012746035247689757,0.049857675608444604,90,10,4,split
+LAME (tuned) - APPNP,lame,appnp,tape-arxiv23,main,0.0,0.2861059999278429,0.10440128636399959,30,10,10,split
+LAME (tuned) - APPNP,lame,appnp,tape-arxiv23,main,2.0,-0.3700496686750612,0.41528549730347547,90,10,2,split
+LAME (tuned) - APPNP,lame,appnp,wikics,main,0.0,0.4024856051536393,0.6509619157084902,30,10,6,split
+LAME (tuned) - APPNP,lame,appnp,wikics,main,2.0,-0.16836744389335523,1.568564521876197,90,10,4,split
+LAME (tuned) - PPR-Prob,lame,ppr,amazon-ratings,heterophilic control,0.0,-0.7219160372865215,0.37114739599027824,30,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,amazon-ratings,heterophilic control,2.0,-0.07257716994397985,0.059268655349223626,90,10,1,split
+LAME (tuned) - PPR-Prob,lame,ppr,books-history,main,0.0,0.07661452065784281,0.1124965892578857,30,10,7,split
+LAME (tuned) - PPR-Prob,lame,ppr,books-history,main,2.0,-1.2432143334670402,0.492189623259288,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,cora-tag,main,0.0,-1.6451016635859528,1.1230603172421207,30,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,cora-tag,main,2.0,-6.527007599096324,2.2248616289434957,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,ele-computers,main,0.0,-0.3911116206198177,0.8298053843936555,30,10,2,split
+LAME (tuned) - PPR-Prob,lame,ppr,ele-computers,main,2.0,-4.399289235354809,1.222856359914648,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,ele-photo,main,0.0,0.40525173162410855,0.6113058736857016,30,10,8,split
+LAME (tuned) - PPR-Prob,lame,ppr,ele-photo,main,2.0,-1.4264217696451755,0.46231814796903253,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,ogbn-arxiv,main,0.0,1.5712336001207101,0.41306479470860497,3,3,3,seed x draw
+LAME (tuned) - PPR-Prob,lame,ppr,ogbn-arxiv,main,2.0,-0.057609612575355074,0.34002876869200926,9,9,5,seed x draw
+LAME (tuned) - PPR-Prob,lame,ppr,ogbn-products,main,0.0,0.0796773984139502,0.35736424802913536,3,3,1,seed x draw
+LAME (tuned) - PPR-Prob,lame,ppr,ogbn-products,main,2.0,0.22466315212524013,0.516828223252931,6,6,5,seed x draw
+LAME (tuned) - PPR-Prob,lame,ppr,pubmed-tag,main,0.0,0.0955037187288706,0.2947745344186963,30,10,7,split
+LAME (tuned) - PPR-Prob,lame,ppr,pubmed-tag,main,2.0,-6.3533919314852385,3.099980304295556,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,roman-empire,heterophilic control,0.0,0.007353481873666838,0.010399393796404534,30,10,5,split
+LAME (tuned) - PPR-Prob,lame,ppr,roman-empire,heterophilic control,2.0,-0.012746035247689635,0.028766783216795423,90,10,4,split
+LAME (tuned) - PPR-Prob,lame,ppr,tape-arxiv23,main,0.0,0.13746076415196432,0.07620261759160758,30,10,10,split
+LAME (tuned) - PPR-Prob,lame,ppr,tape-arxiv23,main,2.0,-3.0070594460679967,0.42830421304877714,90,10,0,split
+LAME (tuned) - PPR-Prob,lame,ppr,wikics,main,0.0,-0.05757938543982617,0.3435143003443992,30,10,4,split
+LAME (tuned) - PPR-Prob,lame,ppr,wikics,main,2.0,-1.179712293103776,0.5615734522792578,90,10,0,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,amazon-ratings,heterophilic control,0.0,-0.07280397360005444,0.17069291976475706,30,10,5,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,amazon-ratings,heterophilic control,2.0,0.02562881313646805,0.06755255508671763,90,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,books-history,main,0.0,0.008022462896108603,0.04995732502278151,30,10,5,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,books-history,main,2.0,0.007755047466239118,0.024869475231051527,90,10,5,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,cora-tag,main,0.0,-0.024645717806531423,0.17475495901567195,30,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,cora-tag,main,2.0,0.08215239268843746,0.17878503261724696,90,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,ele-computers,main,0.0,-0.013947800833046623,0.02110486450017716,30,10,3,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,ele-computers,main,2.0,-0.003821315296724803,0.021271946110751058,90,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,ele-photo,main,0.0,0.017230090630276175,0.31039678698776496,30,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,ele-photo,main,2.0,0.05869717541380831,0.065811472839927,90,10,8,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,ogbn-arxiv,main,0.0,0.06995452955579351,0.05094096415094126,3,3,3,seed x draw
+LAME (tuned) - Coupled Potts solver,lame,coupled,ogbn-arxiv,main,2.0,-0.0036577531793874963,0.012632101212128828,9,9,4,seed x draw
+LAME (tuned) - Coupled Potts solver,lame,coupled,ogbn-products,main,0.0,0.007561068809791571,0.12501157971755816,3,3,1,seed x draw
+LAME (tuned) - Coupled Potts solver,lame,coupled,ogbn-products,main,2.0,-0.19432850554571188,0.49552913906540025,6,6,3,seed x draw
+LAME (tuned) - Coupled Potts solver,lame,coupled,pubmed-tag,main,0.0,-0.01774847870182672,0.042622947646584995,30,10,4,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,pubmed-tag,main,2.0,-0.005916159567275326,0.04359261181090898,90,10,4,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,roman-empire,heterophilic control,0.0,0.010294874623133499,0.007904755495058846,30,10,7,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,roman-empire,heterophilic control,2.0,-0.0031865088119223403,0.02249643831471263,90,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,tape-arxiv23,main,0.0,-0.013709997474473287,0.02475201155909251,30,10,2,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,tape-arxiv23,main,2.0,0.0019242101718558446,0.00903886790625347,90,10,6,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,wikics,main,0.0,0.006271022176614164,0.04516584960780681,30,10,7,split
+LAME (tuned) - Coupled Potts solver,lame,coupled,wikics,main,2.0,-0.010261672652642407,0.02918211472517782,90,10,3,split
+Graph-TV - APPNP,graphtv,appnp,amazon-ratings,heterophilic control,0.0,0.7314417908416686,0.29204438627882123,30,10,10,split
+Graph-TV - APPNP,graphtv,appnp,amazon-ratings,heterophilic control,2.0,-0.004082465809349183,0.07279576926721397,90,10,5,split
+Graph-TV - APPNP,graphtv,appnp,books-history,main,0.0,0.37705575611712766,0.09346159709748217,30,10,10,split
+Graph-TV - APPNP,graphtv,appnp,books-history,main,2.0,0.7950260730044125,0.2213913378067142,90,10,10,split
+Graph-TV - APPNP,graphtv,appnp,cora-tag,main,0.0,0.6592729513247069,1.386298806320472,30,10,6,split
+Graph-TV - APPNP,graphtv,appnp,cora-tag,main,2.0,0.5545286506469501,0.921293900501268,90,10,6,split
+Graph-TV - APPNP,graphtv,appnp,ele-computers,main,0.0,1.104742252283235,0.4472551687617955,30,10,10,split
+Graph-TV - APPNP,graphtv,appnp,ele-computers,main,2.0,-0.2918848000815216,0.49120296411686803,90,10,3,split
+Graph-TV - APPNP,graphtv,appnp,ele-photo,main,0.0,0.16506426823805137,0.42973395069431636,30,10,5,split
+Graph-TV - APPNP,graphtv,appnp,ele-photo,main,2.0,1.094570224106046,0.3168104440774042,90,10,10,split
+Graph-TV - APPNP,graphtv,appnp,ogbn-arxiv,main,0.0,-0.29490635008813104,0.2745131729021193,3,3,1,seed x draw
+Graph-TV - APPNP,graphtv,appnp,ogbn-arxiv,main,2.0,1.39314674219927,0.8497800476681138,9,9,9,seed x draw
+Graph-TV - APPNP,graphtv,appnp,pubmed-tag,main,0.0,0.756423258958755,0.4823824043156098,30,10,9,split
+Graph-TV - APPNP,graphtv,appnp,pubmed-tag,main,2.0,0.773890015776426,0.8098218490187425,90,10,7,split
+Graph-TV - APPNP,graphtv,appnp,roman-empire,heterophilic control,0.0,-0.08382969335980668,0.12315466217553767,30,10,3,split
+Graph-TV - APPNP,graphtv,appnp,roman-empire,heterophilic control,2.0,0.010049758560678343,0.041924481389187494,90,10,6,split
+Graph-TV - APPNP,graphtv,appnp,tape-arxiv23,main,0.0,0.28141573763394356,0.11892072272691974,30,10,10,split
+Graph-TV - APPNP,graphtv,appnp,tape-arxiv23,main,2.0,0.9105122006951211,0.13661789883205938,90,10,10,split
+Graph-TV - APPNP,graphtv,appnp,wikics,main,0.0,0.40191551222849303,0.38230010085603167,30,10,9,split
+Graph-TV - APPNP,graphtv,appnp,wikics,main,2.0,-2.8706079090891827,1.2164516545281097,90,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,amazon-ratings,heterophilic control,0.0,-0.4116486357760093,0.3659243467623303,30,10,2,split
+Graph-TV - PPR-Prob,graphtv,ppr,amazon-ratings,heterophilic control,2.0,-0.06509264929350704,0.0970529448731445,90,10,2,split
+Graph-TV - PPR-Prob,graphtv,ppr,books-history,main,0.0,0.09907741676694762,0.1444297096052076,30,10,8,split
+Graph-TV - PPR-Prob,graphtv,ppr,books-history,main,2.0,0.00561572402727682,0.35143673889896837,90,10,4,split
+Graph-TV - PPR-Prob,graphtv,ppr,cora-tag,main,0.0,-1.6019716574245233,1.0011137898503957,30,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,cora-tag,main,2.0,-1.7518997740809206,1.4614011039538977,90,10,1,split
+Graph-TV - PPR-Prob,graphtv,ppr,ele-computers,main,0.0,-2.2368069089380573,0.661782386906675,30,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,ele-computers,main,2.0,-7.202351382679252,0.9238074089027045,90,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,ele-photo,main,0.0,-2.4001516247975454,0.42836791417558134,30,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,ele-photo,main,2.0,-3.937650045372571,0.6698045733777065,90,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,ogbn-arxiv,main,0.0,-0.15499729097655143,0.36784914314324,3,3,1,seed x draw
+Graph-TV - PPR-Prob,graphtv,ppr,ogbn-arxiv,main,2.0,-5.1812073786026005,0.979883470543489,9,9,0,seed x draw
+Graph-TV - PPR-Prob,graphtv,ppr,pubmed-tag,main,0.0,0.15551048005409,0.3159608583675799,30,10,6,split
+Graph-TV - PPR-Prob,graphtv,ppr,pubmed-tag,main,2.0,-0.5752760874464726,0.801977973468825,90,10,3,split
+Graph-TV - PPR-Prob,graphtv,ppr,roman-empire,heterophilic control,0.0,0.022795793808368197,0.034219817658732735,30,10,6,split
+Graph-TV - PPR-Prob,graphtv,ppr,roman-empire,heterophilic control,2.0,0.010049758560678471,0.03169599121910586,90,10,5,split
+Graph-TV - PPR-Prob,graphtv,ppr,tape-arxiv23,main,0.0,0.13277050185806494,0.14717181274330815,30,10,8,split
+Graph-TV - PPR-Prob,graphtv,ppr,tape-arxiv23,main,2.0,-1.7264975766978146,0.20126762270560147,90,10,0,split
+Graph-TV - PPR-Prob,graphtv,ppr,wikics,main,0.0,-0.05814947836497238,0.3300723709709931,30,10,5,split
+Graph-TV - PPR-Prob,graphtv,ppr,wikics,main,2.0,-3.881952758299603,1.2006819430181563,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,amazon-ratings,heterophilic control,0.0,-1.549976185616112,0.43247359806008245,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,amazon-ratings,heterophilic control,2.0,-0.3236488172189339,0.1696402739420114,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,books-history,main,0.0,-0.8138788608102692,0.2705621122171969,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,books-history,main,2.0,-1.672416098408878,0.9388278738139014,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,cora-tag,main,0.0,-3.2101047443006783,2.413108547519219,30,10,1,split
+LAME (published defaults) - APPNP,lame_default,appnp,cora-tag,main,2.0,-13.251180940644897,4.462781654615276,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,ele-computers,main,0.0,2.3929076388092776,1.0747015520412102,30,10,10,split
+LAME (published defaults) - APPNP,lame_default,appnp,ele-computers,main,2.0,2.7926809074350056,2.249090703362568,90,10,9,split
+LAME (published defaults) - APPNP,lame_default,appnp,ele-photo,main,0.0,-3.9584410213997723,1.4855753987958225,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,ele-photo,main,2.0,-0.3109457022410605,0.7397991383033538,90,10,3,split
+LAME (published defaults) - APPNP,lame_default,appnp,ogbn-arxiv,main,0.0,-7.507081181545725,0.9772979864107016,3,3,0,seed x draw
+LAME (published defaults) - APPNP,lame_default,appnp,ogbn-arxiv,main,2.0,-2.3731959847014483,1.120215772774338,9,9,1,seed x draw
+LAME (published defaults) - APPNP,lame_default,appnp,ogbn-products,main,0.0,1.9261747483497071,0.1578135713857616,3,3,3,seed x draw
+LAME (published defaults) - APPNP,lame_default,appnp,ogbn-products,main,2.0,-2.6563902403169757,0.20721977229889596,6,6,0,seed x draw
+LAME (published defaults) - APPNP,lame_default,appnp,pubmed-tag,main,0.0,0.640635564570656,0.497010423308954,30,10,9,split
+LAME (published defaults) - APPNP,lame_default,appnp,pubmed-tag,main,2.0,-5.435542032905117,4.455696433565599,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,roman-empire,heterophilic control,0.0,-1.51922935509964,0.28183444434778765,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,roman-empire,heterophilic control,2.0,-0.4122852170502734,0.2285642114330174,90,10,1,split
+LAME (published defaults) - APPNP,lame_default,appnp,tape-arxiv23,main,0.0,-0.5126817476638879,0.11277130092615126,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,tape-arxiv23,main,2.0,-3.118423109764164,0.5328026407263573,90,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,wikics,main,0.0,-1.2148680234878286,1.0747539437560432,30,10,0,split
+LAME (published defaults) - APPNP,lame_default,appnp,wikics,main,2.0,-4.498223210383292,3.3124509067132144,90,10,0,split
+PPR-Prob - APPNP,ppr,appnp,amazon-ratings,heterophilic control,0.0,1.1430904266176778,0.26940990452290337,30,10,10,split
+PPR-Prob - APPNP,ppr,appnp,amazon-ratings,heterophilic control,0.5,1.0714204712979973,0.1624043693972661,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,amazon-ratings,heterophilic control,1.0,0.10999977319634338,0.08985579341207067,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,amazon-ratings,heterophilic control,1.5,-0.02109274001496884,0.10823417522410678,90,10,3,split
+PPR-Prob - APPNP,ppr,appnp,amazon-ratings,heterophilic control,2.0,0.06101018348415784,0.07525606725961417,90,10,9,split
+PPR-Prob - APPNP,ppr,appnp,books-history,main,0.0,0.27797833935018,0.11789123795059542,30,10,10,split
+PPR-Prob - APPNP,ppr,appnp,books-history,main,0.5,0.26447386014172997,0.09106270898073496,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,books-history,main,1.0,0.30471988233721076,0.13418146375541365,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,books-history,main,1.5,0.5423184917769752,0.28447829449199813,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,books-history,main,2.0,0.7894103489771356,0.47068838054306844,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,cora-tag,main,0.0,2.26124460874923,0.9148333830690778,30,10,10,split
+PPR-Prob - APPNP,ppr,appnp,cora-tag,main,0.5,2.314643663996713,0.7706607955298492,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,cora-tag,main,1.0,2.41528034504005,1.2084828254182596,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,cora-tag,main,1.5,2.0928322037379345,1.405504023504941,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,cora-tag,main,2.0,2.30642842472787,1.9010546592282198,90,10,9,split
+PPR-Prob - APPNP,ppr,appnp,ele-computers,main,0.0,3.341549161221292,0.8334247147178827,30,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-computers,main,0.5,3.8137363547199614,0.6611236403203578,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-computers,main,1.0,4.036519036519037,0.9956654483812409,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-computers,main,1.5,5.21335677073382,0.9505768787738157,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-computers,main,2.0,6.9104665825977305,0.8425879719145793,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-photo,main,0.0,2.565215893035597,0.5852894939198793,30,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-photo,main,0.5,2.915905670997164,0.28800943256465045,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-photo,main,1.0,3.324488553476457,0.4551862064863717,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-photo,main,1.5,4.138208300308994,0.702380398992633,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ele-photo,main,2.0,5.032220269478618,0.7493570078389971,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,ogbn-arxiv,main,0.0,-0.1399090591115796,0.10787586551379806,3,3,0,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-arxiv,main,0.5,0.5004263568549746,0.8939385394113546,9,9,6,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-arxiv,main,1.0,4.63574493572642,1.3646355285743248,9,9,9,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-arxiv,main,1.5,6.743296595774837,1.9396429364369183,9,9,9,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-arxiv,main,2.0,6.57435412080187,1.7103617151925685,9,9,9,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-products,main,0.0,0.7396743589245395,0.21311070267559237,3,3,3,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-products,main,0.5,0.8286399228750915,1.3532599144106068,9,9,6,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-products,main,1.0,-1.2507644536783873,0.3416943972376815,9,9,0,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-products,main,1.5,-1.369251322145261,0.23254218080374658,9,9,0,seed x draw
+PPR-Prob - APPNP,ppr,appnp,ogbn-products,main,2.0,-1.3039429668479277,0.22036720593777456,9,9,0,seed x draw
+PPR-Prob - APPNP,ppr,appnp,pubmed-tag,main,0.0,0.600912778904665,0.5022153868661902,30,10,9,split
+PPR-Prob - APPNP,ppr,appnp,pubmed-tag,main,0.5,0.5800653594771243,0.5919057313718721,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,pubmed-tag,main,1.0,0.7792427315753876,0.6690895737201854,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,pubmed-tag,main,1.5,1.1074487266170838,0.904543657595296,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,pubmed-tag,main,2.0,1.3491661032228985,1.2505824866997959,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,roman-empire,heterophilic control,0.0,-0.10662548716817488,0.1416274584888566,30,10,2,split
+PPR-Prob - APPNP,ppr,appnp,roman-empire,heterophilic control,0.5,0.03505159693114675,0.05355348128212361,90,10,7,split
+PPR-Prob - APPNP,ppr,appnp,roman-empire,heterophilic control,1.0,-0.0058827854989337534,0.04600526603520975,90,10,3,split
+PPR-Prob - APPNP,ppr,appnp,roman-empire,heterophilic control,1.5,-0.008824178248400693,0.03202599754554814,90,10,3,split
+PPR-Prob - APPNP,ppr,appnp,roman-empire,heterophilic control,2.0,-1.231653667943533e-16,0.04399967977330458,90,10,3,split
+PPR-Prob - APPNP,ppr,appnp,tape-arxiv23,main,0.0,0.14864523577587868,0.11568788589019866,30,10,9,split
+PPR-Prob - APPNP,ppr,appnp,tape-arxiv23,main,0.5,-0.016716575867998924,0.10791035733683146,90,10,5,split
+PPR-Prob - APPNP,ppr,appnp,tape-arxiv23,main,1.0,-0.033312888600256496,0.07777026443129065,90,10,3,split
+PPR-Prob - APPNP,ppr,appnp,tape-arxiv23,main,1.5,0.9991461317362388,0.3179851714859742,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,tape-arxiv23,main,2.0,2.6370097773929357,0.27555340821989205,90,10,10,split
+PPR-Prob - APPNP,ppr,appnp,wikics,main,0.0,0.4600649905934655,0.5618946334948319,30,10,7,split
+PPR-Prob - APPNP,ppr,appnp,wikics,main,0.5,0.36029872869277735,0.4533460976647672,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,wikics,main,1.0,0.35972863576763026,0.5468455127056336,90,10,8,split
+PPR-Prob - APPNP,ppr,appnp,wikics,main,1.5,0.9030271934325297,0.6646019531962087,90,10,9,split
+PPR-Prob - APPNP,ppr,appnp,wikics,main,2.0,1.011344849210421,1.5888099284414698,90,10,8,split

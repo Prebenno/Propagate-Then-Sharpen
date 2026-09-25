@@ -1,6 +1,8 @@
 """Depth, energy, calibration, node-level and timing experiments."""
 
 from statistics import median
+from pathlib import Path
+import platform
 import time
 
 import numpy as np
@@ -207,20 +209,47 @@ def timed(function, device, warmup, repeats):
     return median(samples)
 
 
+def timing_hardware(device):
+    if device.type == "cuda":
+        return torch.cuda.get_device_name(device)
+    cpuinfo = Path("/proc/cpuinfo")
+    if cpuinfo.exists():
+        for line in cpuinfo.read_text().splitlines():
+            if line.startswith("model name"):
+                return line.partition(":")[2].strip()
+    return platform.processor() or platform.machine()
+
+
+@torch.no_grad()
 def timing_rows(data, forward, timing_params):
+    """Time complete calls; per-step values are fixed-100-call time divided by 100."""
     device = data["q"].device
+    common = {"device": str(device), "hardware": timing_hardware(device),
+              "threads": torch.get_num_threads(), "dtype": str(data["q"].dtype)}
     forward_ms = timed(forward, device, warmup=1, repeats=3)
-    rows = [{"method": "backbone", "access": "backbone forward", "ms": forward_ms,
-             "K": 0, "parameters": {}}]
+    rows = [{**common, "method": "backbone", "mode": "forward", "ms": forward_ms,
+             "ms_per_step": None, "K": 0, "parameters": {},
+             "training_seconds": getattr(forward, "training_seconds", None)}]
     if data["metadata"]["backbone"] != "mlp":
         return rows
+    required = ("appnp", "ppr", "pts", "cs", "cs_pts")
+    missing = set(required) - set(timing_params)
+    if missing:
+        raise ValueError("Timing needs median sigma=2 selections for: " + ", ".join(sorted(missing)))
     evaluate = predictor(data)
-    for method in ("appnp", "ppr", "pts", "cs"):
+    for method in required:
         params = timing_params[method]
         elapsed = timed(lambda: evaluate(method, params), device, warmup=2, repeats=5)
-        rows.append({"method": method, "access": "label_aware" if method in LABEL_AWARE else "label_free",
-                     "ms": elapsed, "K": params.get("steps", params.get("steps_smooth", 0)),
-                     "parameters": params})
+        depth = params.get("steps", params.get("steps_correct", 0) + params.get("steps_smooth", 0))
+        rows.append({**common, "method": method, "mode": "selected", "ms": elapsed,
+                     "ms_per_step": None, "K": depth, "parameters": params})
+    for method in ("appnp", "ppr", "pts"):
+        params = {"alpha": 0.1, "steps": 100}
+        if method == "pts":
+            params["eta"] = 16.0
+        elapsed = timed(lambda: evaluate(method, params), device, warmup=1, repeats=3)
+        rows.append({**common, "method": method, "mode": "fixed_100", "ms": elapsed,
+                     "ms_per_step": elapsed / 100, "K": 100, "parameters": params})
     return rows
 
 

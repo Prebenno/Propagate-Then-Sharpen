@@ -1,11 +1,16 @@
 """Load graphs and prepare splits."""
 
 import argparse
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import shutil
+import stat
+import zipfile
 
 import numpy as np
 import torch
 from torch_geometric.datasets import HeterophilousGraphDataset, WikiCS
+
+from .seeds import split_seed
 
 
 
@@ -39,11 +44,11 @@ def _read(path):
     return _extract(torch.load(path, map_location="cpu", weights_only=False))
 
 
-def _random_splits(n, count):
+def _random_splits(n, count, dataset):
     train, val = round(.6 * n), round(.2 * n)
     result = []
-    for seed in range(1, count + 1):
-        order = np.random.default_rng(seed).permutation(n)
+    for split in range(count):
+        order = np.random.default_rng(split_seed(dataset, split)).permutation(n)
         parts = (order[:train], order[train:train + val], order[train + val:])
         result.append({name: torch.from_numpy(np.sort(index)).long()
                        for name, index in zip(("train_index", "val_index", "test_index"), parts)})
@@ -67,7 +72,7 @@ def _official(name, root, count):
     if name in CONTROLS:
         cached = directory / name.replace("-", "_") / "processed/data.pt"
         data = _read(cached) if cached.exists() else _extract(HeterophilousGraphDataset(str(directory), name=name)[0])
-        return data, _random_splits(len(data["y"]), count)
+        return data, _random_splits(len(data["y"]), count, name)
     ogb_directory = directory / name.replace("-", "_")
     cached = ogb_directory / "processed/geometric_data_processed.pt"
     if cached.exists():
@@ -77,11 +82,18 @@ def _official(name, root, count):
                                                     delimiter=",", dtype=np.int64)).reshape(-1)
                    for role in ("train", "valid", "test")}
     else:
+        if ogb_directory.exists() and not (ogb_directory / "RELEASE_v1.txt").exists():
+            # An incomplete local archive should not trigger OGB's interactive
+            # upgrade-and-delete prompt during an unattended paper run.
+            raise FileNotFoundError(f"Incomplete OGB input at {ogb_directory}. "
+                                    "Restore the processed tensor and split CSVs or use a fresh data root.")
+        from unittest.mock import patch
         from ogb.nodeproppred import PygNodePropPredDataset
         from torch_geometric.data import Data
         from torch_geometric.data.data import DataEdgeAttr, DataTensorAttr
         from torch_geometric.data.storage import GlobalStorage
-        with torch.serialization.safe_globals([Data, DataEdgeAttr, DataTensorAttr, GlobalStorage]):
+        with torch.serialization.safe_globals([Data, DataEdgeAttr, DataTensorAttr, GlobalStorage]), \
+                patch("ogb.nodeproppred.dataset_pyg.decide_download", return_value=True):
             dataset = PygNodePropPredDataset(name=name, root=str(directory))
         data, indices = _extract(dataset[0]), dataset.get_idx_split()
     return data, [{f"{role}_index": indices["valid" if role == "val" else role].long()
@@ -89,13 +101,17 @@ def _official(name, root, count):
 
 
 def load_dataset(name, root, splits=10):
+    if name not in DATASETS:
+        raise ValueError(f"Unknown dataset: {name}")
+    if splits < 1 or (name == "wikics" and splits > 20):
+        raise ValueError("Splits must be positive; WikiCS provides 20 splits")
     root = Path(root)
     if name in CUSTOM:
         path = root / name / "graph.pt"
         if not path.exists():
             raise FileNotFoundError(f"Missing {path}. Supply {FEATURES[name]} in a graph.pt with x, y and edge_index.")
         data = _read(path)
-        indices = _random_splits(len(data["y"]), splits)
+        indices = _random_splits(len(data["y"]), splits, name)
     else:
         data, indices = _official(name, root, splits)
     x = data["x"]
@@ -106,6 +122,116 @@ def load_dataset(name, root, splits=10):
     edges, _ = remove_self_loops(edges)
     edges = to_undirected(edges, num_nodes=len(x)).contiguous()
     return {"x": x, "y": y, "edge_index": edges, "splits": indices, "preprocessing": "identity"}
+
+
+
+def required_files(name, root):
+    """Processed inputs required for an offline run; no checksums or manifest."""
+    directory = Path(root) / name
+    if name in CUSTOM:
+        return [directory / "graph.pt"]
+    if name == "wikics":
+        return [directory / "processed/data_undirected.pt"]
+    if name in CONTROLS:
+        return [directory / name.replace("-", "_") / "processed/data.pt"]
+    directory = directory / name.replace("-", "_")
+    split_name = "time" if name == "ogbn-arxiv" else "sales_ranking"
+    return [directory / "processed/geometric_data_processed.pt", *[
+        directory / "split" / split_name / f"{role}.csv.gz" for role in ("train", "valid", "test")]]
+
+
+def preflight_inputs(names, root):
+    """Check the entire requested cohort before any classifier is trained."""
+    missing = [str(path) for name in names for path in required_files(name, root) if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Missing dataset inputs (prepare all data before training):\n" + "\n".join(missing))
+
+
+def _extract_archive(source, root):
+    root = Path(root).resolve()
+    with zipfile.ZipFile(source) as archive:
+        members = []
+        for entry in archive.infolist():
+            if entry.filename == "README.txt":
+                continue
+            name = PurePosixPath(entry.filename)
+            if (name.is_absolute() or ".." in name.parts or "\\" in entry.filename
+                    or not name.parts or name.parts[0] != "data"
+                    or stat.S_ISLNK(entry.external_attr >> 16)):
+                raise ValueError(f"Unexpected path in paper-data archive: {entry.filename}")
+            relative = Path(*name.parts[1:])
+            target = (root / relative).resolve()
+            if not target.is_relative_to(root):
+                raise ValueError(f"Archive path escapes data root: {entry.filename}")
+            members.append((entry, target))
+        for entry, target in members:
+            if entry.is_dir():
+                target.mkdir(parents=True, exist_ok=True)
+                continue
+            target.parent.mkdir(parents=True, exist_ok=True)
+            temporary = target.with_name(target.name + ".tmp")
+            with archive.open(entry) as reader, temporary.open("wb") as writer:
+                shutil.copyfileobj(reader, writer)
+            temporary.replace(target)
+
+
+def prepare_datasets(names, root, source=None, splits=10):
+    """Unpack released feature inputs and prepare official caches sequentially."""
+    names = tuple(DATASETS if "all" in names else names)
+    unknown = set(names) - set(DATASETS)
+    if unknown:
+        raise ValueError(f"Unknown datasets: {sorted(unknown)}")
+    if source is not None:
+        source = Path(source)
+        if source.is_dir():
+            candidates = [source / "data/graphs", source / "data", source]
+            source_root = next((candidate for candidate in candidates if any(
+                path.is_file() for name in names for path in required_files(name, candidate))), None)
+            if source_root is None:
+                raise FileNotFoundError(f"No processed dataset inputs found in {source}")
+            for name in names:
+                for original in required_files(name, source_root):
+                    if not original.is_file():
+                        continue
+                    destination = Path(root) / original.relative_to(source_root)
+                    if destination.resolve() == original.resolve():
+                        continue
+                    destination.parent.mkdir(parents=True, exist_ok=True)
+                    temporary = destination.with_name(destination.name + ".tmp")
+                    shutil.copyfile(original, temporary)
+                    temporary.replace(destination)
+        else:
+            _extract_archive(source, root)
+    # Detect absent paper-only embeddings before attempting any downloads.
+    missing = [str(path) for name in names if name in CUSTOM
+               for path in required_files(name, root) if not path.is_file()]
+    if missing:
+        raise FileNotFoundError("Supply paper-data.zip for these exact feature inputs:\n" + "\n".join(missing))
+    for name in names:
+        data = load_dataset(name, root, splits)
+        _validate_dataset(name, data)
+        print(f"{name}: {len(data['y'])} nodes, {data['x'].shape[1]} features, "
+              f"{len(data['splits'])} splits ready", flush=True)
+        del data
+    preflight_inputs(names, root)
+
+
+def _validate_dataset(name, data):
+    x, y, edges = data["x"], data["y"], data["edge_index"]
+    if x.ndim != 2 or len(x) != len(y) or edges.ndim != 2 or edges.shape[0] != 2:
+        raise ValueError(f"{name}: inconsistent feature, label, or edge tensor shapes")
+    # Chunk the feature check to keep the products validation allocation small.
+    if any(not bool(torch.isfinite(block).all()) for block in x.split(100_000)):
+        raise ValueError(f"{name}: features contain NaN or infinity")
+    if len(y) == 0 or int(y.min()) < 0:
+        raise ValueError(f"{name}: invalid labels")
+    if edges.numel() and (int(edges.min()) < 0 or int(edges.max()) >= len(y)):
+        raise ValueError(f"{name}: invalid edge endpoints")
+    for split in data["splits"]:
+        combined = torch.cat(list(split.values()))
+        if (combined.numel() == 0 or int(combined.min()) < 0 or int(combined.max()) >= len(y)
+                or combined.unique().numel() != combined.numel()):
+            raise ValueError(f"{name}: invalid or overlapping split indices")
 
 
 #Download CS-TAG graphs and RoBERTa features.
@@ -133,22 +259,15 @@ def main():
     parser.add_argument("--datasets", nargs="+", default=["all"], choices=("all", *DATASETS))
     parser.add_argument("--root", type=Path, default=Path("data"))
     parser.add_argument("--splits", type=int, default=10)
+    parser.add_argument("--data-source", "--source", type=Path, help="Released paper-data.zip or directory of processed inputs")
     parser.add_argument("--cstag", action="store_true", help="Download and convert CS-TAG inputs from Hugging Face")
     args = parser.parse_args()
     names = DATASETS if "all" in args.datasets else args.datasets
-    missing = []
-    for name in names:
-        path = args.root / name / "graph.pt"
-        if name in CUSTOM and not path.exists():
-            if args.cstag and name in CSTAG:
+    if args.cstag:
+        for name in names:
+            if name in CSTAG and not (args.root / name / "graph.pt").exists():
                 download_cstag(name, args.root)
-            else:
-                missing.append(f"{path}: {FEATURES[name]}")
-                continue
-        data = load_dataset(name, args.root, args.splits)
-        print(f"{name}: {len(data['y'])} nodes, {data['x'].shape[1]} features, {len(data['splits'])} splits")
-    if missing:
-        parser.exit(1, "Missing custom inputs:\n" + "\n".join(missing) + "\n")
+    prepare_datasets(names, args.root, source=args.data_source, splits=args.splits)
 
 
 if __name__ == "__main__":

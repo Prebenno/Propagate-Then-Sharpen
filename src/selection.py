@@ -15,7 +15,7 @@ def _suggest(trial, method, base, search):
     else:
         if method != "lame":
             params["alpha"] = trial.suggest_float("alpha", 0, 1)
-        params["steps"] = trial.suggest_int("steps", 1, search["max_steps"])
+        params["steps"] = trial.suggest_int("K", 1, search["max_steps"])
     if method in {"pts", "pts_rn", "cs_pts", "lame"}:
         key = "strength" if method == "lame" else "eta"
         switch = "use_graph" if method == "lame" else "use_reaction"
@@ -30,6 +30,8 @@ def _suggest(trial, method, base, search):
 def tune(method, predict, base, val_index, val_labels, search):
     if method == "graph_tv":
         return _tv_path(predict, base, val_index, val_labels, search["graph_tv"])
+    if search["trials"] < 1 or search["max_steps"] < 1:
+        raise ValueError("Search trial count and maximum depth must be positive")
     seed = search.get("seed", 1)
     study = optuna.create_study(direction="maximize",
                                 sampler=optuna.samplers.TPESampler(seed=seed))

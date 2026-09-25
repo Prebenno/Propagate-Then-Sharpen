@@ -3,17 +3,127 @@ methods:
   ppr: {}
   pts: {}
   lame: {}
-  graph_tv: {epsilon: 1.0, max_iterations: 3000, gap_tolerance: 1.0e-05, gap_interval: 25}
+  graph_tv:
+    epsilon: 1.0
+    max_iterations: 3000
+    gap_tolerance: 1.0e-05
+    gap_interval: 25
   ppr_rn: {}
   pts_rn: {}
-  cs: {steps_correct: 50, steps_smooth: 50}
-  cs_pts: {steps_correct: 50, steps_smooth: 50}
+  cs:
+    steps_correct: 50
+    steps_smooth: 50
+  cs_pts:
+    steps_correct: 50
+    steps_smooth: 50
 search:
   trials: 250
   max_steps: 100
-  eta_log10: [-2.0, 2.408]
+  eta_log10:
+  - -2.0
+  - 2.408
   graph_tv:
-    log10_grid: [-3.0, 3.0, 25]
+    log10_grid:
+    - -3.0
+    - 3.0
+    - 25
     select_gap: 0.001
     drop_pp: 5.0
     consecutive: 2
+study_tag: pts_paper_v1
+split_seed_base: 20250901
+corruption_tag: optuna_board_v2
+optuna_seed_tag: optuna_board_v2
+datasets:
+  main:
+  - wikics
+  - cora-tag
+  - pubmed-tag
+  - tape-arxiv23
+  - ogbn-arxiv
+  - ogbn-products
+  - ele-photo
+  - ele-computers
+  - books-history
+  controls:
+  - roman-empire
+  - amazon-ratings
+architectures:
+- mlp
+- gcn
+- sage
+units:
+  splits: 10
+  model_seeds:
+  - 0
+  - 1
+  - 2
+  draws: 3
+corruption:
+  sigmas:
+  - 0.0
+  - 0.5
+  - 1.0
+  - 1.5
+  - 2.0
+  node_fraction: 1.0
+depth:
+  sigmas:
+  - 0.0
+  - 2.0
+  alphas:
+  - 0.0
+  - 0.1
+  steps:
+  - 1
+  - 2
+  - 3
+  - 5
+  - 10
+  - 20
+  - 40
+  - 100
+  etas:
+  - 16.0
+  - 200.0
+energy:
+  dataset: wikics
+  sigma: 2.0
+  alpha: 0.1
+  eta: 16.0
+  steps: 20
+calibration:
+  datasets:
+  - wikics
+  - cora-tag
+  - pubmed-tag
+  - tape-arxiv23
+  - ogbn-arxiv
+  - ogbn-products
+per_node:
+  model_seed: 0
+  draw: 0
+timing:
+  split: 0
+  model_seed: 0
+  warmup: 2
+  repeats: 5
+  fixed_steps: 100
+  alpha: 0.1
+  eta: 16.0
+  cpu_threads: 8
+  forward_warmup: 1
+  forward_repeats: 3
+  fixed_warmup: 1
+  fixed_repeats: 3
+exceptions:
+  official_split:
+  - ogbn-arxiv
+  - ogbn-products
+  products_external_draws: 2
+  products_mass_draws: 2
+  graph_tv_excluded:
+  - ogbn-products
+  per_node_excluded:
+  - ogbn-products
+training_seed_base: 20260826

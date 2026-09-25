@@ -7,6 +7,7 @@ from torch import nn
 from torch.nn import functional as F
 
 
+
 def training_recipe(kind, dataset, epochs=None):
     recipe = dict(kind=kind, hidden=256, layers=3 if kind == "mlp" else 2,
                   dropout=0.5, learning_rate=0.01, weight_decay=0.0005,
@@ -16,6 +17,7 @@ def training_recipe(kind, dataset, epochs=None):
         if dataset == "ogbn-products":
             recipe["hidden"] = 128
     recipe["products_gcn"] = kind == "gcn" and dataset == "ogbn-products"
+    recipe["products_sparse"] = kind != "mlp" and dataset == "ogbn-products"
     return recipe
 
 
@@ -53,14 +55,23 @@ class Backbone(nn.Module):
         self.register_buffer("adjacency", adjacency, persistent=False)
         dimensions = [in_features] + [recipe["hidden"]] * (recipe["layers"] - 1) + [out_features]
         pairs = list(zip(dimensions, dimensions[1:]))
-        bias = self.kind != "gcn" or self.products_gcn
-        self.layers = nn.ModuleList(nn.Linear(a, b, bias=bias) for a, b in pairs)
-        if self.kind == "gcn" and not self.products_gcn:
-            self.biases = nn.ParameterList(nn.Parameter(torch.zeros(b)) for _, b in pairs)
-            for layer in self.layers:
-                nn.init.xavier_uniform_(layer.weight)
-        if self.kind == "sage":
-            self.roots = nn.ModuleList(nn.Linear(a, b, bias=False) for a, b in pairs)
+        if self.kind != "mlp" and not recipe.get("products_sparse", self.products_gcn):
+            # Construct the recorded PyG layers to preserve parameter initialization
+            # and RNG consumption, while keeping the existing sparse forwards and
+            # checkpoint names. No PyG message-passing tensors are materialized.
+            from torch_geometric.nn import GCNConv, SAGEConv
+            if self.kind == "gcn":
+                convs = [GCNConv(a, b, cached=True) for a, b in pairs]
+                self.layers = nn.ModuleList(conv.lin for conv in convs)
+                self.biases = nn.ParameterList(conv.bias for conv in convs)
+            else:
+                convs = [SAGEConv(a, b, aggr="mean") for a, b in pairs]
+                self.layers = nn.ModuleList(conv.lin_l for conv in convs)
+                self.roots = nn.ModuleList(conv.lin_r for conv in convs)
+        else:
+            self.layers = nn.ModuleList(nn.Linear(a, b) for a, b in pairs)
+            if self.kind == "sage":
+                self.roots = nn.ModuleList(nn.Linear(a, b, bias=False) for a, b in pairs)
         self.norms = nn.ModuleList(nn.BatchNorm1d(d) for d in dimensions[1:-1])
 
     def layer(self, i, x):
@@ -79,8 +90,11 @@ class Backbone(nn.Module):
 
 
 #Choose the model with the best validation accuracy.
-def train(x, y, indices, kind, dataset, seed, adjacency=None, device="cpu", epochs=None):
-    torch.manual_seed(seed)
+def train(x, y, indices, kind, dataset, seed, adjacency=None, device="cpu", epochs=None, split=0):
+    from src.seeds import seed_everything, training_seed
+
+    actual_seed = training_seed(seed, split)
+    seed_everything(actual_seed)
     recipe = training_recipe(kind, dataset, epochs)
     x, y = x.to(device), y.to(device)
     train_index = indices["train_index"].to(device)
@@ -109,7 +123,7 @@ def train(x, y, indices, kind, dataset, seed, adjacency=None, device="cpu", epoc
     model.load_state_dict(state)
     model.eval().requires_grad_(False)
     checkpoint = dict(state_dict=state, recipe=recipe, in_features=x.shape[1],
-                      out_features=int(y.max()) + 1, seed=seed, best_epoch=best_epoch,
+                      out_features=int(y.max()) + 1, seed=seed, training_seed=actual_seed, best_epoch=best_epoch,
                       best_val_accuracy=best, epochs_run=epoch + 1,
                       training_seconds=time.monotonic() - started)
     return model, checkpoint

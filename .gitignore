@@ -4,3 +4,6 @@ __pycache__/
 data/
 runs/
 *.pt
+!pretrained/**/*.pt
+.pytest_cache/
+pretrained/ogbn-products/**/*.pt

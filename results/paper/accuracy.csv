@@ -1,0 +1,384 @@
+dataset,system,method,sigma,acc,sd,sd_over,n
+amazon-ratings,anchor,Q (frozen MLP),0.0,49.52439273321086,0.5479944311101644,splits,10
+amazon-ratings,anchor,Q (frozen MLP),0.5,40.70808101426594,0.3797909070620968,splits,10
+amazon-ratings,anchor,Q (frozen MLP),1.0,35.728153137828585,0.3243079921845776,splits,10
+amazon-ratings,anchor,Q (frozen MLP),1.5,34.43469188723322,0.2988308756800771,splits,10
+amazon-ratings,anchor,Q (frozen MLP),2.0,34.173414075434906,0.36978688322853714,splits,10
+amazon-ratings,appnp,APPNP,0.0,51.62754303599373,0.5477113418036402,splits,10
+amazon-ratings,appnp,APPNP,0.5,44.20199133610034,0.3172990443808424,splits,10
+amazon-ratings,appnp,APPNP,1.0,38.69565217391305,0.25638969340961765,splits,10
+amazon-ratings,appnp,APPNP,1.5,37.085799823093154,0.37360811241774206,splits,10
+amazon-ratings,appnp,APPNP,2.0,36.7369758000499,0.4437270540808588,splits,10
+amazon-ratings,coupled,Coupled Potts solver,0.0,52.12152139892495,0.6170564337417531,splits,10
+amazon-ratings,coupled,Coupled Potts solver,0.5,44.80551586491573,0.4063153017556615,splits,10
+amazon-ratings,coupled,Coupled Potts solver,1.0,38.45229185094463,0.2609523663693783,splits,10
+amazon-ratings,coupled,Coupled Potts solver,1.5,36.937243428364056,0.428712907451137,splits,10
+amazon-ratings,coupled,Coupled Potts solver,2.0,36.6997800004536,0.47980401444463167,splits,10
+amazon-ratings,graphtv,Graph-TV,0.0,52.35898482683541,0.5572155500347549,splits,10
+amazon-ratings,graphtv,Graph-TV,2.0,36.73289333424055,0.49857665355533,splits,10
+amazon-ratings,lame,LAME (tuned),0.0,52.0487174253249,0.62564272596192,splits,10
+amazon-ratings,lame,LAME (tuned),2.0,36.72540881359008,0.5014717224522393,splits,10
+amazon-ratings,lame_default,LAME (published defaults),0.0,50.07756685037763,0.6991327086274636,splits,10
+amazon-ratings,lame_default,LAME (published defaults),2.0,36.41332698283097,0.4243336862445209,splits,10
+amazon-ratings,potts,PtS,0.0,52.744097434850644,0.6642195895018542,splits,10
+amazon-ratings,potts,PtS,0.5,45.20310267401511,0.3395046108750886,splits,10
+amazon-ratings,potts,PtS,1.0,38.80950760926267,0.2552842819798149,splits,10
+amazon-ratings,potts,PtS,1.5,37.05200607833798,0.39193264263066174,splits,10
+amazon-ratings,potts,PtS,2.0,36.77666643986301,0.48561035029918365,splits,10
+amazon-ratings,potts_norm,PtS without mass preservation,0.0,52.69442743417024,0.6121787384935407,splits,10
+amazon-ratings,potts_norm,PtS without mass preservation,2.0,36.79435712503685,0.46038721390893456,splits,10
+amazon-ratings,ppr,PPR-Prob,0.0,52.77063346261142,0.5851538722151399,splits,10
+amazon-ratings,ppr,PPR-Prob,0.5,45.27341180739834,0.2882504048654015,splits,10
+amazon-ratings,ppr,PPR-Prob,1.0,38.80565194710939,0.26050911865728243,splits,10
+amazon-ratings,ppr,PPR-Prob,1.5,37.064707083078176,0.3768230487313233,splits,10
+amazon-ratings,ppr,PPR-Prob,2.0,36.797985983534055,0.46391460615384206,splits,10
+amazon-ratings,ppr_norm,"PPR-Prob, renormalised each step",0.0,52.75090154453291,0.5911601510714687,splits,10
+amazon-ratings,ppr_norm,"PPR-Prob, renormalised each step",2.0,36.8120478102107,0.45957184280713126,splits,10
+books-history,anchor,Q (frozen MLP),0.0,81.37825912555154,0.3757362841974871,splits,10
+books-history,anchor,Q (frozen MLP),0.5,80.41502874715871,0.481500110427365,splits,10
+books-history,anchor,Q (frozen MLP),1.0,77.41248830057495,1.0014133212293008,splits,10
+books-history,anchor,Q (frozen MLP),1.5,72.55288140125687,1.648874622130636,splits,10
+books-history,anchor,Q (frozen MLP),2.0,66.91362481615188,2.262568789658219,splits,10
+books-history,appnp,APPNP,0.0,82.59045326915363,0.39520436041237117,splits,10
+books-history,appnp,APPNP,0.5,82.20403797299103,0.3802198559617639,splits,10
+books-history,appnp,APPNP,1.0,81.1095066185319,0.482396402168183,splits,10
+books-history,appnp,APPNP,1.5,79.66506217408745,0.6432174198109833,splits,10
+books-history,appnp,APPNP,2.0,78.1099077416767,0.905015714413724,splits,10
+books-history,coupled,Coupled Potts solver,0.0,82.93702366626555,0.3514595733471088,splits,10
+books-history,coupled,Coupled Potts solver,0.5,82.57079823505815,0.3919919872277349,splits,10
+books-history,coupled,Coupled Potts solver,1.0,81.45313544591524,0.48294334912532544,splits,10
+books-history,coupled,Coupled Potts solver,1.5,79.75264072736996,0.7562379333885574,splits,10
+books-history,coupled,Coupled Potts solver,2.0,77.64834870972057,1.073912384444255,splits,10
+books-history,graphtv,Graph-TV,0.0,82.96750902527074,0.3974327722881316,splits,10
+books-history,graphtv,Graph-TV,2.0,78.9049338146811,0.7720539673905324,splits,10
+books-history,lame,LAME (tuned),0.0,82.94504612916165,0.34318267194289254,splits,10
+books-history,lame,LAME (tuned),2.0,77.6561037571868,1.0685545294174341,splits,10
+books-history,lame_default,LAME (published defaults),0.0,81.77657440834336,0.4037328751817051,splits,10
+books-history,lame_default,LAME (published defaults),2.0,76.43749164326782,1.4420677452461776,splits,10
+books-history,potts,PtS,0.0,82.87645407139992,0.3138029201657077,splits,10
+books-history,potts,PtS,0.5,82.48669608236396,0.3936550315122659,splits,10
+books-history,potts,PtS,1.0,81.47492980344967,0.419306508146291,splits,10
+books-history,potts,PtS,1.5,80.30832999064046,0.5476564559189695,splits,10
+books-history,potts,PtS,2.0,79.13290546864555,0.5797151683276652,splits,10
+books-history,potts_norm,PtS without mass preservation,0.0,82.89971921379863,0.43235563453330966,splits,10
+books-history,potts_norm,PtS without mass preservation,2.0,79.09065383072604,0.6344425829310109,splits,10
+books-history,ppr,PPR-Prob,0.0,82.86843160850381,0.387154607912593,splits,10
+books-history,ppr,PPR-Prob,0.5,82.46851183313275,0.40155810283343363,splits,10
+books-history,ppr,PPR-Prob,1.0,81.41422650086909,0.4780399558291047,splits,10
+books-history,ppr,PPR-Prob,1.5,80.2073806658644,0.5214012116260122,splits,10
+books-history,ppr,PPR-Prob,2.0,78.89931809065384,0.6767429894813037,splits,10
+books-history,ppr_norm,"PPR-Prob, renormalised each step",0.0,82.8531889290012,0.41019753141042964,splits,10
+books-history,ppr_norm,"PPR-Prob, renormalised each step",2.0,78.8565316218746,0.6488153912821405,splits,10
+cora-tag,anchor,Q (frozen MLP),0.0,60.51139864448552,1.7754351378577857,splits,10
+cora-tag,anchor,Q (frozen MLP),0.5,58.84575888272745,1.9308191252962752,splits,10
+cora-tag,anchor,Q (frozen MLP),1.0,54.167180119120964,2.1090492467955735,splits,10
+cora-tag,anchor,Q (frozen MLP),1.5,48.81905935510372,2.2196354218289254,splits,10
+cora-tag,anchor,Q (frozen MLP),2.0,43.81803245019511,2.0859458403688866,splits,10
+cora-tag,appnp,APPNP,0.0,76.16142945163278,2.4668726851035943,splits,10
+cora-tag,appnp,APPNP,0.5,75.60484699116861,2.195171612558134,splits,10
+cora-tag,appnp,APPNP,1.0,73.86527007599096,2.2593204549221944,splits,10
+cora-tag,appnp,APPNP,1.5,71.431505442596,2.3005318562938184,splits,10
+cora-tag,appnp,APPNP,2.0,68.16184021359621,2.3149270250252147,splits,10
+cora-tag,coupled,Coupled Potts solver,0.0,76.80221811460258,2.0957415929306378,splits,10
+cora-tag,coupled,Coupled Potts solver,0.5,75.59868556171698,1.817088496179073,splits,10
+cora-tag,coupled,Coupled Potts solver,1.0,72.80961182994454,1.6260286135920614,splits,10
+cora-tag,coupled,Coupled Potts solver,1.5,68.82522078455534,1.719279951664076,splits,10
+cora-tag,coupled,Coupled Potts solver,2.0,63.85910864653933,1.98086026306767,splits,10
+cora-tag,graphtv,Graph-TV,0.0,76.8207024029575,2.6278815636007398,splits,10
+cora-tag,graphtv,Graph-TV,2.0,68.71636886424317,2.661016901742737,splits,10
+cora-tag,lame,LAME (tuned),0.0,76.77757239679606,2.1128203522163695,splits,10
+cora-tag,lame,LAME (tuned),2.0,63.941261039227776,1.924576756683349,splits,10
+cora-tag,lame_default,LAME (published defaults),0.0,72.95132470733208,2.0841869353004516,splits,10
+cora-tag,lame_default,LAME (published defaults),2.0,54.91065927295133,3.4438634024805497,splits,10
+cora-tag,potts,PtS,0.0,79.74121996303141,2.322676395753884,splits,10
+cora-tag,potts,PtS,0.5,78.95255699322243,2.173133958044175,splits,10
+cora-tag,potts,PtS,1.0,77.32183199835694,2.140363711336018,splits,10
+cora-tag,potts,PtS,1.5,75.21256931608134,2.1473735982392235,splits,10
+cora-tag,potts,PtS,2.0,72.29615937564182,2.4135629869941786,splits,10
+cora-tag,potts_norm,PtS without mass preservation,0.0,79.14972273567469,2.5494059644791114,splits,10
+cora-tag,potts_norm,PtS without mass preservation,2.0,71.23844731977819,2.5777145113798534,splits,10
+cora-tag,ppr,PPR-Prob,0.0,78.42267406038201,2.1670954114351315,splits,10
+cora-tag,ppr,PPR-Prob,0.5,77.91949065516533,2.284307851110557,splits,10
+cora-tag,ppr,PPR-Prob,1.0,76.28055042103101,2.21306836522076,splits,10
+cora-tag,ppr,PPR-Prob,1.5,73.52433764633396,2.2679791556468083,splits,10
+cora-tag,ppr,PPR-Prob,2.0,70.46826863832408,2.468665541114164,splits,10
+cora-tag,ppr_norm,"PPR-Prob, renormalised each step",0.0,78.25631546518794,2.329322770081834,splits,10
+cora-tag,ppr_norm,"PPR-Prob, renormalised each step",2.0,69.9650852331074,2.8064592848123735,splits,10
+ele-computers,anchor,Q (frozen MLP),0.0,60.9633535863044,0.6636674834615037,splits,10
+ele-computers,anchor,Q (frozen MLP),0.5,58.04310443654706,0.7458248709359376,splits,10
+ele-computers,anchor,Q (frozen MLP),1.0,51.17868470327487,1.2879805929557941,splits,10
+ele-computers,anchor,Q (frozen MLP),1.5,43.916402359025305,1.6691013398438268,splits,10
+ele-computers,anchor,Q (frozen MLP),2.0,38.04654362031412,1.6973846704647213,splits,10
+ele-computers,appnp,APPNP,0.0,75.36646413695595,2.920366175124038,splits,10
+ele-computers,appnp,APPNP,0.5,74.13740176035257,2.6252769731286594,splits,10
+ele-computers,appnp,APPNP,1.0,71.16957723515101,2.5865123623725914,splits,10
+ele-computers,appnp,APPNP,1.5,66.24689518132142,2.114058209923202,splits,10
+ele-computers,appnp,APPNP,2.0,59.936184034544695,2.052126934893649,splits,10
+ele-computers,coupled,Coupled Potts solver,0.0,78.33084947839046,1.769415657221103,splits,10
+ele-computers,coupled,Coupled Potts solver,0.5,77.06357394881987,1.6873591698107417,splits,10
+ele-computers,coupled,Coupled Potts solver,1.0,73.41141554256309,1.4909978326533533,splits,10
+ele-computers,coupled,Coupled Potts solver,1.5,68.16385799992358,1.32656270692566,splits,10
+ele-computers,coupled,Coupled Potts solver,2.0,62.451182697084334,1.4627500556184676,splits,10
+ele-computers,graphtv,Graph-TV,0.0,76.47120638923919,2.76157732333008,splits,10
+ele-computers,graphtv,Graph-TV,2.0,59.64429923446316,1.8343456552133968,splits,10
+ele-computers,lame,LAME (tuned),0.0,78.31690167755741,1.7736425111659042,splits,10
+ele-computers,lame,LAME (tuned),2.0,62.44736138178761,1.4648820025236218,splits,10
+ele-computers,lame_default,LAME (published defaults),0.0,77.75937177576523,2.1529194238218587,splits,10
+ele-computers,lame_default,LAME (published defaults),2.0,62.728864941979694,1.9978124990539277,splits,10
+ele-computers,potts,PtS,0.0,80.11062707784018,2.1693294365437574,splits,10
+ele-computers,potts,PtS,0.5,79.25700892914008,2.2571220350884325,splits,10
+ele-computers,potts,PtS,1.0,77.07077075929536,2.3881690415949794,splits,10
+ele-computers,potts,PtS,1.5,73.74425210490783,2.1500367057488323,splits,10
+ele-computers,potts,PtS,2.0,69.56290521864292,1.9975742990385181,splits,10
+ele-computers,potts_norm,PtS without mass preservation,0.0,79.66506171424204,2.1391191584646907,splits,10
+ele-computers,potts_norm,PtS without mass preservation,2.0,67.41812831976766,1.8638667105107172,splits,10
+ele-computers,ppr,PPR-Prob,0.0,78.70801329817724,2.3189811392082484,splits,10
+ele-computers,ppr,PPR-Prob,0.5,77.95113811507255,2.4066898482790884,splits,10
+ele-computers,ppr,PPR-Prob,1.0,75.20609627167005,2.0378683531792485,splits,10
+ele-computers,ppr,PPR-Prob,1.5,71.46025195205522,1.783812879473033,splits,10
+ele-computers,ppr,PPR-Prob,2.0,66.84665061714242,1.7355144383067882,splits,10
+ele-computers,ppr_norm,"PPR-Prob, renormalised each step",0.0,78.70170812793764,2.259584131015665,splits,10
+ele-computers,ppr_norm,"PPR-Prob, renormalised each step",2.0,65.74451959697862,1.5581385159094072,splits,10
+ele-photo,anchor,Q (frozen MLP),0.0,66.8300079258417,0.8805431593359248,splits,10
+ele-photo,anchor,Q (frozen MLP),0.5,64.28914389423022,0.6341498270951035,splits,10
+ele-photo,anchor,Q (frozen MLP),1.0,57.874610887119935,0.6874175604756299,splits,10
+ele-photo,anchor,Q (frozen MLP),1.5,50.53976130581114,1.14664800953065,splits,10
+ele-photo,anchor,Q (frozen MLP),2.0,44.14889095649976,1.4102498360872542,splits,10
+ele-photo,appnp,APPNP,0.0,71.8670526206968,1.9104782021089248,splits,10
+ele-photo,appnp,APPNP,0.5,70.39146765911988,1.711568080941725,splits,10
+ele-photo,appnp,APPNP,1.0,66.69837003342637,1.608351292768302,splits,10
+ele-photo,appnp,APPNP,1.5,61.253891128800674,1.498413284285377,splits,10
+ele-photo,appnp,APPNP,2.0,55.970341270661756,1.1611915752853288,splits,10
+ele-photo,coupled,Coupled Potts solver,0.0,74.82029015472621,1.5964967635145224,splits,10
+ele-photo,coupled,Coupled Potts solver,0.5,73.54124309360535,1.6744949781200797,splits,10
+ele-photo,coupled,Coupled Potts solver,1.0,69.92935662841587,1.3854794178305607,splits,10
+ele-photo,coupled,Coupled Potts solver,1.5,64.83958785623213,1.2864694688956513,splits,10
+ele-photo,coupled,Coupled Potts solver,2.0,59.51744259508138,1.2234545859409953,splits,10
+ele-photo,graphtv,Graph-TV,0.0,72.03211688893484,1.7215787547308379,splits,10
+ele-photo,graphtv,Graph-TV,2.0,57.0649114947678,0.9953167824576036,splits,10
+ele-photo,lame,LAME (tuned),0.0,74.83752024535649,1.7513763104090334,splits,10
+ele-photo,lame,LAME (tuned),2.0,59.576139770495196,1.1852011465181302,splits,10
+ele-photo,lame_default,LAME (published defaults),0.0,67.90861159929702,2.8517470667222065,splits,10
+ele-photo,lame_default,LAME (published defaults),2.0,55.65939556842069,1.2169971808605435,splits,10
+ele-photo,potts,PtS,0.0,74.91057582962887,1.6168212475543557,splits,10
+ele-photo,potts,PtS,0.5,73.46072113672652,1.7856176309544696,splits,10
+ele-photo,potts,PtS,1.0,70.18183488978485,1.544905607647292,splits,10
+ele-photo,potts,PtS,1.5,65.96965206703653,1.7305541956738906,splits,10
+ele-photo,potts,PtS,2.0,61.42676637145779,1.6253965562903816,splits,10
+ele-photo,potts_norm,PtS without mass preservation,0.0,74.92160308763223,1.7121376132599682,splits,10
+ele-photo,potts_norm,PtS without mass preservation,2.0,60.730785577265465,1.2289420452730009,splits,10
+ele-photo,ppr,PPR-Prob,0.0,74.4322685137324,1.92780563823957,splits,10
+ele-photo,ppr,PPR-Prob,0.5,73.30737333011703,1.6388257378815443,splits,10
+ele-photo,ppr,PPR-Prob,1.0,70.02285858690284,1.4315755580249643,splits,10
+ele-photo,ppr,PPR-Prob,1.5,65.39209942910966,1.5012562183870912,splits,10
+ele-photo,ppr,PPR-Prob,2.0,61.00256154014037,1.3485892672017028,splits,10
+ele-photo,ppr_norm,"PPR-Prob, renormalised each step",0.0,74.77514731727489,1.8351095396628934,splits,10
+ele-photo,ppr_norm,"PPR-Prob, renormalised each step",2.0,60.598228746683205,1.18256200933629,splits,10
+ogbn-arxiv,anchor,Q (frozen MLP),0.0,55.94510626916034,0.3283479762286253,seed x draw,3
+ogbn-arxiv,anchor,Q (frozen MLP),0.5,51.12327314043258,0.21038767169884004,seed x draw,9
+ogbn-arxiv,anchor,Q (frozen MLP),1.0,40.1084066598541,0.28794047381487964,seed x draw,9
+ogbn-arxiv,anchor,Q (frozen MLP),1.5,29.73296115694733,0.2118597519829121,seed x draw,9
+ogbn-arxiv,anchor,Q (frozen MLP),2.0,22.654065706963674,0.22394749498268934,seed x draw,9
+ogbn-arxiv,appnp,APPNP,0.0,66.09880048556674,0.7059936312145209,seed x draw,3
+ogbn-arxiv,appnp,APPNP,0.5,64.52619522800376,0.9663238457215498,seed x draw,9
+ogbn-arxiv,appnp,APPNP,1.0,58.08923546100264,1.510387701487105,seed x draw,9
+ogbn-arxiv,appnp,APPNP,1.5,45.49604848351839,0.8867867468894131,seed x draw,9
+ogbn-arxiv,appnp,APPNP,2.0,33.860507010312574,1.2311264552046148,seed x draw,9
+ogbn-arxiv,coupled,Coupled Potts solver,0.0,67.46017049702006,0.8123927079408783,seed x draw,3
+ogbn-arxiv,coupled,Coupled Potts solver,0.5,66.49612392467772,0.1807090356304075,seed x draw,9
+ogbn-arxiv,coupled,Coupled Potts solver,1.0,62.06887092017639,0.27029527051281926,seed x draw,9
+ogbn-arxiv,coupled,Coupled Potts solver,1.5,52.1257261211585,0.7475197216976373,seed x draw,9
+ogbn-arxiv,coupled,Coupled Potts solver,2.0,40.38090927171848,0.6066898394009941,seed x draw,9
+ogbn-arxiv,graphtv,Graph-TV,0.0,65.8038941354786,0.43385321079691036,seed x draw,3
+ogbn-arxiv,graphtv,Graph-TV,2.0,35.253653752511845,0.4846177070530679,seed x draw,9
+ogbn-arxiv,lame,LAME (tuned),0.0,67.53012502657587,0.8422568676725468,seed x draw,3
+ogbn-arxiv,lame,LAME (tuned),2.0,40.37725151853909,0.5995225812377676,seed x draw,9
+ogbn-arxiv,lame_default,LAME (published defaults),0.0,58.59171930402101,1.4999770292373398,seed x draw,3
+ogbn-arxiv,lame_default,LAME (published defaults),2.0,31.48731102561113,0.2284592134698213,seed x draw,9
+ogbn-arxiv,potts,PtS,0.0,66.5583057287273,1.0970633785936423,seed x draw,3
+ogbn-arxiv,potts,PtS,0.5,65.92414277125097,0.4469737092184008,seed x draw,9
+ogbn-arxiv,potts,PtS,1.0,63.035889416977,0.10048034439910959,seed x draw,9
+ogbn-arxiv,potts,PtS,1.5,53.93357063007084,0.7870704837220068,seed x draw,9
+ogbn-arxiv,potts,PtS,2.0,40.6170629613627,0.8402503986342497,seed x draw,9
+ogbn-arxiv,potts_norm,PtS without mass preservation,0.0,67.44645392259737,0.7977237635406108,seed x draw,3
+ogbn-arxiv,potts_norm,PtS without mass preservation,2.0,41.68215496528563,0.956832152780001,seed x draw,9
+ogbn-arxiv,ppr,PPR-Prob,0.0,65.95889142645515,0.8017018003186951,seed x draw,3
+ogbn-arxiv,ppr,PPR-Prob,0.5,65.02662158485873,0.3711017879217342,seed x draw,9
+ogbn-arxiv,ppr,PPR-Prob,1.0,62.72498039672905,0.23654331021790165,seed x draw,9
+ogbn-arxiv,ppr,PPR-Prob,1.5,52.23934507929322,1.9077702602423563,seed x draw,9
+ogbn-arxiv,ppr,PPR-Prob,2.0,40.43486113111445,0.817172475962203,seed x draw,9
+ogbn-arxiv,ppr_norm,"PPR-Prob, renormalised each step",0.0,67.07267726957869,0.7092639564345856,seed x draw,3
+ogbn-arxiv,ppr_norm,"PPR-Prob, renormalised each step",2.0,40.60288916779257,1.1414208278562894,seed x draw,9
+ogbn-products,anchor,Q (frozen MLP),0.0,59.582638038833466,0.1215681219297552,seed x draw,3
+ogbn-products,anchor,Q (frozen MLP),0.5,41.754285446614404,0.04295072652117609,seed x draw,9
+ogbn-products,anchor,Q (frozen MLP),1.0,30.48441197301773,0.07693599067455528,seed x draw,9
+ogbn-products,anchor,Q (frozen MLP),1.5,25.21302156626687,0.12269827706438839,seed x draw,9
+ogbn-products,anchor,Q (frozen MLP),2.0,22.46155565526526,0.15603194388471142,seed x draw,9
+ogbn-products,appnp,APPNP,0.0,70.5838124144014,0.19842608335986484,seed x draw,3
+ogbn-products,appnp,APPNP,0.5,56.82889276180288,1.128928669281191,seed x draw,9
+ogbn-products,appnp,APPNP,1.0,38.51289139639235,0.19085019659218846,seed x draw,9
+ogbn-products,appnp,APPNP,1.5,31.641973451008866,0.23583355240884296,seed x draw,9
+ogbn-products,appnp,APPNP,2.0,28.53970105863498,0.13351476342534846,seed x draw,9
+ogbn-products,coupled,Coupled Potts solver,0.0,71.39560310293008,0.08651649817372074,seed x draw,3
+ogbn-products,coupled,Coupled Potts solver,0.5,57.31801508990517,0.3710926904815251,seed x draw,6
+ogbn-products,coupled,Coupled Potts solver,1.0,37.834496337174265,0.274494679522876,seed x draw,6
+ogbn-products,coupled,Coupled Potts solver,1.5,30.952553088267347,0.15603756342967767,seed x draw,6
+ogbn-products,coupled,Coupled Potts solver,2.0,27.664670514377097,0.18476865683145863,seed x draw,6
+ogbn-products,lame,LAME (tuned),0.0,71.40316417173989,0.21150071366819947,seed x draw,3
+ogbn-products,lame,LAME (tuned),2.0,27.47034200883139,0.4632997028357982,seed x draw,6
+ogbn-products,lame_default,LAME (published defaults),0.0,72.5099871627511,0.13493678141021814,seed x draw,3
+ogbn-products,lame_default,LAME (published defaults),2.0,25.88837663400797,0.1261578462752889,seed x draw,6
+ogbn-products,potts,PtS,0.0,72.1685190532156,0.04051703577862478,seed x draw,3
+ogbn-products,potts,PtS,0.5,57.11696145044795,0.3283165282484377,seed x draw,9
+ogbn-products,potts,PtS,1.0,37.28450891134215,0.22968366121933875,seed x draw,9
+ogbn-products,potts,PtS,1.5,30.343091279220875,0.2426664968240784,seed x draw,9
+ogbn-products,potts,PtS,2.0,27.33065804042099,0.11235846658788377,seed x draw,9
+ogbn-products,potts_norm,PtS without mass preservation,0.0,71.9303604475972,0.1525033862515043,seed x draw,3
+ogbn-products,potts_norm,PtS without mass preservation,2.0,27.438011661819,0.07659668397844632,seed x draw,6
+ogbn-products,ppr,PPR-Prob,0.0,71.32348677332594,0.1541148636000328,seed x draw,3
+ogbn-products,ppr,PPR-Prob,0.5,57.65753268467798,0.5304062119507204,seed x draw,9
+ogbn-products,ppr,PPR-Prob,1.0,37.262126942713955,0.21062840655556075,seed x draw,9
+ogbn-products,ppr,PPR-Prob,1.5,30.272722128863606,0.22798693344258855,seed x draw,9
+ogbn-products,ppr,PPR-Prob,2.0,27.23575809178706,0.21081975061901845,seed x draw,9
+ogbn-products,ppr_norm,"PPR-Prob, renormalised each step",0.0,70.72290896909948,0.15715602288141667,seed x draw,3
+ogbn-products,ppr_norm,"PPR-Prob, renormalised each step",2.0,27.50367397153273,0.14577147544015784,seed x draw,6
+pubmed-tag,anchor,Q (frozen MLP),0.0,81.59060175794454,0.4624840356645594,splits,10
+pubmed-tag,anchor,Q (frozen MLP),0.5,79.38697318007664,0.8603669290322075,splits,10
+pubmed-tag,anchor,Q (frozen MLP),1.0,74.5151566373676,2.082079726597586,splits,10
+pubmed-tag,anchor,Q (frozen MLP),1.5,69.24583051611448,3.3804464205409563,splits,10
+pubmed-tag,anchor,Q (frozen MLP),2.0,64.56135902636917,4.178054913828411,splits,10
+pubmed-tag,appnp,APPNP,0.0,84.35429344151454,0.7981812913083205,splits,10
+pubmed-tag,appnp,APPNP,0.5,83.58631958530538,0.6656653543770664,splits,10
+pubmed-tag,appnp,APPNP,1.0,81.98022312373226,0.6595462370279153,splits,10
+pubmed-tag,appnp,APPNP,1.5,80.35215235519493,0.9069157943123214,splits,10
+pubmed-tag,appnp,APPNP,2.0,78.8708586883029,1.1524288515718664,splits,10
+pubmed-tag,coupled,Coupled Potts solver,0.0,85.0684584178499,0.5402313718229795,splits,10
+pubmed-tag,coupled,Coupled Potts solver,0.5,83.91086319585307,0.8721566374881855,splits,10
+pubmed-tag,coupled,Coupled Potts solver,1.0,80.9665877845391,1.7814708584289076,splits,10
+pubmed-tag,coupled,Coupled Potts solver,1.5,77.30617534370069,3.0001933661795532,splits,10
+pubmed-tag,coupled,Coupled Potts solver,2.0,73.87254901960785,3.9863687091051307,splits,10
+pubmed-tag,graphtv,Graph-TV,0.0,85.11071670047329,0.5962668802136197,splits,10
+pubmed-tag,graphtv,Graph-TV,2.0,79.64474870407933,1.406038428260872,splits,10
+pubmed-tag,lame,LAME (tuned),0.0,85.05070993914809,0.5305923370527782,splits,10
+pubmed-tag,lame,LAME (tuned),2.0,73.86663286004057,3.970161436327417,splits,10
+pubmed-tag,lame_default,LAME (published defaults),0.0,84.99492900608519,0.6020575292157427,splits,10
+pubmed-tag,lame_default,LAME (published defaults),2.0,73.4353166553978,4.8319056905935645,splits,10
+pubmed-tag,potts,PtS,0.0,85.18424611223799,0.5496537634721933,splits,10
+pubmed-tag,potts,PtS,0.5,84.38781834572909,0.6124167662991625,splits,10
+pubmed-tag,potts,PtS,1.0,83.05048456164073,0.8196737367636262,splits,10
+pubmed-tag,potts,PtS,1.5,81.83795357223349,0.9735571739454755,splits,10
+pubmed-tag,potts,PtS,2.0,80.72627901735407,1.2706001922159187,splits,10
+pubmed-tag,potts_norm,PtS without mass preservation,0.0,85.11916835699796,0.5488018952000779,splits,10
+pubmed-tag,potts_norm,PtS without mass preservation,2.0,80.63105702050936,1.3222392533628753,splits,10
+pubmed-tag,ppr,PPR-Prob,0.0,84.9552062204192,0.569112374207712,splits,10
+pubmed-tag,ppr,PPR-Prob,0.5,84.16638494478251,0.5895883327475546,splits,10
+pubmed-tag,ppr,PPR-Prob,1.0,82.75946585530764,0.691227924644508,splits,10
+pubmed-tag,ppr,PPR-Prob,1.5,81.45960108181205,0.8604014188829082,splits,10
+pubmed-tag,ppr,PPR-Prob,2.0,80.2200247915258,1.1462041806315344,splits,10
+pubmed-tag,ppr_norm,"PPR-Prob, renormalised each step",0.0,84.92393509127788,0.5442382662009569,splits,10
+pubmed-tag,ppr_norm,"PPR-Prob, renormalised each step",2.0,80.07831868379535,1.244089993159949,splits,10
+roman-empire,anchor,Q (frozen MLP),0.0,65.53570115449665,0.4718570151275107,splits,10
+roman-empire,anchor,Q (frozen MLP),0.5,53.910091428291295,0.7627439222015725,splits,10
+roman-empire,anchor,Q (frozen MLP),1.0,36.235017280682406,1.7901159419291102,splits,10
+roman-empire,anchor,Q (frozen MLP),1.5,25.139593597568446,1.4918000646995617,splits,10
+roman-empire,anchor,Q (frozen MLP),2.0,19.33549035468294,1.1671843915362834,splits,10
+roman-empire,appnp,APPNP,0.0,65.64894477535111,0.47676428882947774,splits,10
+roman-empire,appnp,APPNP,0.5,53.84219427899111,0.8064546100738279,splits,10
+roman-empire,appnp,APPNP,1.0,36.19481824643968,1.7815223231175483,splits,10
+roman-empire,appnp,APPNP,1.5,25.11140525038606,1.4948851653343853,splits,10
+roman-empire,appnp,APPNP,2.0,19.304850846875993,1.1630870092567762,splits,10
+roman-empire,coupled,Coupled Potts solver,0.0,65.53937789543349,0.4644163522817614,splits,10
+roman-empire,coupled,Coupled Potts solver,0.5,53.866951001299114,0.7982989003317952,splits,10
+roman-empire,coupled,Coupled Potts solver,1.0,36.20290707650072,1.8016358705823687,splits,10
+roman-empire,coupled,Coupled Potts solver,1.5,25.109444321886414,1.4959277301410447,splits,10
+roman-empire,coupled,Coupled Potts solver,2.0,19.29529132044023,1.1540055948056465,splits,10
+roman-empire,graphtv,Graph-TV,0.0,65.56511508199131,0.4742574595544412,splits,10
+roman-empire,graphtv,Graph-TV,2.0,19.314900605436673,1.1427500517852889,splits,10
+roman-empire,lame,LAME (tuned),0.0,65.54967277005662,0.46917096869058467,splits,10
+roman-empire,lame,LAME (tuned),2.0,19.29210481162831,1.1388930387791918,splits,10
+roman-empire,lame_default,LAME (published defaults),0.0,64.1297154202515,0.44779155854889224,splits,10
+roman-empire,lame_default,LAME (published defaults),2.0,18.892565629825725,1.0908305550757507,splits,10
+roman-empire,potts,PtS,0.0,65.53643650268401,0.4582038154861474,splits,10
+roman-empire,potts,PtS,0.5,53.87038262617349,0.7925514113528022,splits,10
+roman-empire,potts,PtS,1.0,36.18403313969164,1.8031507200168408,splits,10
+roman-empire,potts,PtS,1.5,25.104296884574843,1.5032563086365647,splits,10
+roman-empire,potts,PtS,2.0,19.29798759712724,1.1553021510222872,splits,10
+roman-empire,potts_norm,PtS without mass preservation,0.0,65.53717185087137,0.4552723217513879,splits,10
+roman-empire,potts_norm,PtS without mass preservation,2.0,19.294555972252862,1.126868325085827,splits,10
+roman-empire,ppr,PPR-Prob,0.0,65.54231928818295,0.46677010979464656,splits,10
+roman-empire,ppr,PPR-Prob,0.5,53.87724587592224,0.7959284624123012,splits,10
+roman-empire,ppr,PPR-Prob,1.0,36.188935460940755,1.8066308348637754,splits,10
+roman-empire,ppr,PPR-Prob,1.5,25.102581072137657,1.4988634881717533,splits,10
+roman-empire,ppr,PPR-Prob,2.0,19.304850846875997,1.1433804171069277,splits,10
+roman-empire,ppr_norm,"PPR-Prob, renormalised each step",0.0,65.54673137730715,0.4694090992629117,splits,10
+roman-empire,ppr_norm,"PPR-Prob, renormalised each step",2.0,19.303135034438807,1.1258069536487365,splits,10
+tape-arxiv23,anchor,Q (frozen MLP),0.0,67.587762023307,0.3222964531777392,splits,10
+tape-arxiv23,anchor,Q (frozen MLP),0.5,61.95896621808517,0.45719793785851515,splits,10
+tape-arxiv23,anchor,Q (frozen MLP),1.0,48.95142571947421,0.7895859159648866,splits,10
+tape-arxiv23,anchor,Q (frozen MLP),1.5,36.89071688855215,0.910719411684757,splits,10
+tape-arxiv23,anchor,Q (frozen MLP),2.0,28.559848949501507,0.8866917619918376,splits,10
+tape-arxiv23,appnp,APPNP,0.0,69.52989140238842,0.3277747440533827,splits,10
+tape-arxiv23,appnp,APPNP,0.5,65.2916982357398,0.414047286576664,splits,10
+tape-arxiv23,appnp,APPNP,1.0,55.35399454005365,0.6939562029840374,splits,10
+tape-arxiv23,appnp,APPNP,1.5,44.87270147081814,0.7521962060047821,splits,10
+tape-arxiv23,appnp,APPNP,2.0,35.62554870055682,0.8464279014992616,splits,10
+tape-arxiv23,coupled,Coupled Potts solver,0.0,69.82970739979073,0.27608209578753534,splits,10
+tape-arxiv23,coupled,Coupled Potts solver,0.5,65.30540823321428,0.4593972903485648,splits,10
+tape-arxiv23,coupled,Coupled Potts solver,1.0,54.60583757260887,0.8048494590453318,splits,10
+tape-arxiv23,coupled,Coupled Potts solver,1.5,43.74090510035959,0.9492330018709318,splits,10
+tape-arxiv23,coupled,Coupled Potts solver,2.0,35.253574821709904,1.0303619828125676,splits,10
+tape-arxiv23,graphtv,Graph-TV,0.0,69.81130714002238,0.29323102195780376,splits,10
+tape-arxiv23,graphtv,Graph-TV,2.0,36.536060901251936,0.8446191605431209,splits,10
+tape-arxiv23,lame,LAME (tuned),0.0,69.81599740231626,0.2789454111969413,splits,10
+tape-arxiv23,lame,LAME (tuned),2.0,35.25549903188176,1.029575296892825,splits,10
+tape-arxiv23,lame_default,LAME (published defaults),0.0,69.01720965472454,0.3440293009966812,splits,10
+tape-arxiv23,lame_default,LAME (published defaults),2.0,32.507125590792654,1.1130908889868991,splits,10
+tape-arxiv23,potts,PtS,0.0,69.71786268355162,0.3379931189919618,splits,10
+tape-arxiv23,potts,PtS,0.5,65.28279876369496,0.44327876339093,splits,10
+tape-arxiv23,potts,PtS,1.0,55.32561244001876,0.7064080016018199,splits,10
+tape-arxiv23,potts,PtS,1.5,45.8965015453813,0.8514301979458094,splits,10
+tape-arxiv23,potts,PtS,2.0,38.913061779172835,0.8378754138840511,splits,10
+tape-arxiv23,potts_norm,PtS without mass preservation,0.0,69.74564346790778,0.3154527496834565,splits,10
+tape-arxiv23,potts_norm,PtS without mass preservation,2.0,38.694543661531426,0.9272868265363261,splits,10
+tape-arxiv23,ppr,PPR-Prob,0.0,69.67853663816429,0.33538022832558634,splits,10
+tape-arxiv23,ppr,PPR-Prob,0.5,65.27498165987181,0.47050092053567205,splits,10
+tape-arxiv23,ppr,PPR-Prob,1.0,55.32068165145338,0.7287937315973062,splits,10
+tape-arxiv23,ppr,PPR-Prob,1.5,45.87184760255438,0.8549485276901603,splits,10
+tape-arxiv23,ppr,PPR-Prob,2.0,38.26255847794975,0.9779543448543396,splits,10
+tape-arxiv23,ppr_norm,"PPR-Prob, renormalised each step",0.0,69.76115741241837,0.3437382564601994,splits,10
+tape-arxiv23,ppr_norm,"PPR-Prob, renormalised each step",2.0,38.067732198049335,0.9643433936986376,splits,10
+wikics,anchor,Q (frozen MLP),0.0,72.66917507553731,0.5967483983713391,splits,10
+wikics,anchor,Q (frozen MLP),0.5,69.8764798662182,0.6606427447335091,splits,10
+wikics,anchor,Q (frozen MLP),1.0,62.54071413640423,1.0102476700401548,splits,10
+wikics,anchor,Q (frozen MLP),1.5,53.910647435532,1.3630075215479927,splits,10
+wikics,anchor,Q (frozen MLP),2.0,46.35691617733691,1.4323711973810527,splits,10
+wikics,appnp,APPNP,0.0,77.77549740607718,0.9919696986913914,splits,10
+wikics,appnp,APPNP,0.5,77.12217091385897,0.7418524127433158,splits,10
+wikics,appnp,APPNP,1.0,75.32922866427228,0.997654474789014,splits,10
+wikics,appnp,APPNP,1.5,72.18744655378828,1.3249148919540574,splits,10
+wikics,appnp,APPNP,2.0,67.97255952720293,2.171553980595979,splits,10
+wikics,coupled,Coupled Potts solver,0.0,78.17171198905422,0.7059871953509146,splits,10
+wikics,coupled,Coupled Potts solver,0.5,77.17918020637364,0.5706043717259421,splits,10
+wikics,coupled,Coupled Potts solver,1.0,74.79144100488381,0.575555308096996,splits,10
+wikics,coupled,Coupled Potts solver,1.5,71.53678049522071,0.8159562153730479,splits,10
+wikics,coupled,Coupled Potts solver,2.0,67.81445375596222,1.1998890770349642,splits,10
+wikics,graphtv,Graph-TV,0.0,78.17741291830569,0.6528467061661184,splits,10
+wikics,graphtv,Graph-TV,2.0,65.10195161811376,1.911951955572033,splits,10
+wikics,lame,LAME (tuned),0.0,78.17798301123084,0.7070163654660865,splits,10
+wikics,lame,LAME (tuned),2.0,67.80419208330957,1.186770850591265,splits,10
+wikics,lame_default,LAME (published defaults),0.0,76.56062938258937,1.9015374291000313,splits,10
+wikics,lame_default,LAME (published defaults),2.0,63.474336316819645,2.9944557226386013,splits,10
+wikics,potts,PtS,0.0,78.41856222564277,0.6419177705113611,splits,10
+wikics,potts,PtS,0.5,77.61264086046026,0.6078981357848453,splits,10
+wikics,potts,PtS,1.0,76.13895064895578,0.646822315310989,splits,10
+wikics,potts,PtS,1.5,74.37679341732704,0.9201158829068607,splits,10
+wikics,potts,PtS,2.0,72.14906029682838,1.5370121699622206,splits,10
+wikics,potts_norm,PtS without mass preservation,0.0,78.23841286129638,0.6508653829618876,splits,10
+wikics,potts_norm,PtS without mass preservation,2.0,69.66497539098872,1.4832822957762788,splits,10
+wikics,ppr,PPR-Prob,0.0,78.23556239667066,0.7362127149038026,splits,10
+wikics,ppr,PPR-Prob,0.5,77.48246964255175,0.6037000915007422,splits,10
+wikics,ppr,PPR-Prob,1.0,75.6889573000399,0.8389311210519187,splits,10
+wikics,ppr,PPR-Prob,1.5,73.09047374722078,1.019541004701431,splits,10
+wikics,ppr,PPR-Prob,2.0,68.98390437641336,1.4096582039076322,splits,10
+wikics,ppr_norm,"PPR-Prob, renormalised each step",0.0,78.08391767858161,0.7076047748351079,splits,10
+wikics,ppr_norm,"PPR-Prob, renormalised each step",2.0,67.97826045645441,1.5921861164925928,splits,10

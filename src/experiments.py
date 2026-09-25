@@ -12,8 +12,9 @@ import torch
 import yaml
 
 from .methods.baselines import LABEL_AWARE, predict
-from .diagnostics import diagnostic_rows, metrics
+from .diagnostics import ALPHAS, DEPTHS, diagnostic_rows, metrics
 from .selection import tune
+from .seeds import MODEL_SEEDS, NOISY_DRAWS, SPLIT_SEED_BASE, STREAM_TAG, TRAINING_SEED_BASE, study_seed
 
 MAIN_DATASETS = ('wikics', 'cora-tag', 'pubmed-tag', 'tape-arxiv23', 'ogbn-arxiv',
                  'ogbn-products', 'ele-photo', 'ele-computers', 'books-history')
@@ -21,6 +22,91 @@ CALIBRATION_DATASETS = MAIN_DATASETS[:6]
 STAGES = ('main', 'external', 'mass', 'transfer', 'depth', 'energy',
           'calibration', 'per_node', 'timing')
 CONFIG = Path(__file__).resolve().parents[1] / 'configs' / 'paper.yaml'
+
+
+def validate_recorded_settings(config):
+    """Declared fixed protocol values must agree with the implemented paper recipe."""
+    fixed = {
+        'split_seed_base': SPLIT_SEED_BASE, 'training_seed_base': TRAINING_SEED_BASE,
+        'corruption_tag': STREAM_TAG,
+        'datasets': {'main': list(MAIN_DATASETS), 'controls': ['roman-empire', 'amazon-ratings']},
+        'architectures': ['mlp', 'gcn', 'sage'],
+        'units': {'splits': 10, 'model_seeds': list(MODEL_SEEDS), 'draws': len(NOISY_DRAWS)},
+        'corruption': {'sigmas': [0., .5, 1., 1.5, 2.], 'node_fraction': 1.},
+        'depth': {'sigmas': [0., 2.], 'alphas': list(ALPHAS), 'steps': list(DEPTHS),
+                  'etas': [16., 200.]},
+        'energy': {'dataset': 'wikics', 'sigma': 2., 'alpha': .1, 'eta': 16., 'steps': 20},
+        'calibration': {'datasets': list(CALIBRATION_DATASETS)},
+        'per_node': {'model_seed': 0, 'draw': 0},
+        'timing': {'split': 0, 'model_seed': 0, 'warmup': 2, 'repeats': 5,
+                   'forward_warmup': 1, 'forward_repeats': 3,
+                   'fixed_warmup': 1, 'fixed_repeats': 3,
+                   'fixed_steps': 100, 'alpha': .1, 'eta': 16., 'cpu_threads': 8},
+        'exceptions': {'official_split': ['ogbn-arxiv', 'ogbn-products'],
+                       'products_external_draws': 2, 'products_mass_draws': 2,
+                       'graph_tv_excluded': ['ogbn-products'],
+                       'per_node_excluded': ['ogbn-products']},
+    }
+
+    def compare(actual, expected, prefix=''):
+        for key, value in expected.items():
+            if key not in actual:
+                continue
+            name = prefix + key
+            if isinstance(value, dict) and isinstance(actual[key], dict):
+                compare(actual[key], value, name + '.')
+            elif actual[key] != value:
+                raise ValueError(f'Frozen paper protocol: {name} is fixed at {value!r}. '
+                                 'Use individual-run CLI options for subset experiments.')
+
+    if not isinstance(config, dict):
+        raise ValueError('Experiment configuration must be a mapping')
+    compare(config, fixed)
+
+
+def check_settings(run, config, *, write=False):
+    """Reject incompatible cached studies before changing their recorded settings."""
+    validate_recorded_settings(config)
+    run = Path(run)
+    path = run / 'refinement.yaml'
+    if path.exists():
+        if yaml.safe_load(path.read_text()) != config:
+            raise ValueError('Experiment settings differ from this output directory, including '
+                             'the search budget. Choose a new output directory.')
+    elif any(run.glob('*/*/split_*/seed_*/*.selections.json')):
+        raise ValueError('Cached selections have no recorded experiment settings. '
+                         'Choose a new output directory.')
+    if write and not path.exists():
+        run.mkdir(parents=True, exist_ok=True)
+        temporary = path.with_suffix('.yaml.tmp')
+        temporary.write_text(yaml.safe_dump(config, sort_keys=False))
+        temporary.replace(path)
+
+
+def main_results_complete(folder, selections):
+    """Reuse main results only when every saved context and method is present."""
+    expected = {}
+    for path in context_files(folder):
+        sigma, draw = context_info(path)
+        if path.stem not in selections:
+            return False
+        parameters = selected_parameters(selections, path.stem)
+        for method, settings in {'anchor': {}, **parameters}.items():
+            expected[(sigma, draw, method)] = settings
+        if 'pts' in parameters:
+            expected[(sigma, draw, 'reaction_off')] = dict(parameters['pts'], eta=0.)
+    found = {}
+    for path in folder.glob('main.*.csv'):
+        with path.open(newline='') as handle:
+            for row in csv.DictReader(handle):
+                try:
+                    key = (float(row['sigma']), int(row['draw']), row['method'])
+                    if key in found:
+                        return False
+                    found[key] = json.loads(row['parameters'])
+                except (KeyError, TypeError, ValueError):
+                    return False
+    return bool(expected) and expected == found
 
 
 def unit_info(folder):
@@ -38,9 +124,9 @@ def context_files(folder, stage='main'):
     if stage not in ('main', 'transfer'):
         paths = [p for p in paths if context_info(p)[0] in (0, 2)]
     if stage in ('external', 'mass') and unit_info(folder)['dataset'] == 'ogbn-products':
-        paths = [p for p in paths if context_info(p)[1] in (0, 1, 2)]
+        paths = [p for p in paths if context_info(p)[0] == 0 or context_info(p)[1] in (0, 1)]
     if stage in ('per_node', 'timing'):
-        paths = [p for p in paths if context_info(p)[1] in (0, 1)]
+        paths = [p for p in paths if context_info(p)[0] == 0 or context_info(p)[1] == 0]
     if stage in ('energy', 'timing'):
         paths = [p for p in paths if context_info(p)[0] == 2]
     return paths
@@ -77,10 +163,13 @@ def write_results(folder, stage, rows):
         groups.setdefault(group, []).append(item)
     for group, records in groups.items():
         columns = list(dict.fromkeys(key for row in records for key in row))
-        with (folder / f'{stage}.{group}.csv').open('w', newline='') as file:
+        output = folder / f'{stage}.{group}.csv'
+        temporary = output.with_suffix('.csv.tmp')
+        with temporary.open('w', newline='') as file:
             writer = csv.DictWriter(file, fieldnames=columns)
             writer.writeheader()
             writer.writerows(records)
+        temporary.replace(output)
 
 
 def methods_for(stage, backbone, dataset):
@@ -98,7 +187,6 @@ def select_methods(folder, stage, graph, split, config, device, operators):
     output = folder / f'{stage}.selections.json'
     selections = json.loads(output.read_text()) if output.exists() else {}
     search = copy.deepcopy(config['search'])
-    search['seed'] = info['seed']
     if info['dataset'] == 'ogbn-products':
         search['max_steps'] = min(search['max_steps'], 50)
     for path in context_files(folder, stage):
@@ -113,11 +201,22 @@ def select_methods(folder, stage, graph, split, config, device, operators):
             return method_prediction(method, params, data, operators)
 
         for method in pending:
+            sigma, draw = context_info(path)
+            tag = config.get('optuna_seed_tag', 'optuna_board_v2')
+            if info['backbone'] != 'mlp':
+                tag += '_' + info['backbone']
+            original = {'pts': 'potts', 'pts_rn': 'potts_norm',
+                        'ppr_rn': 'ppr_norm', 'cs_pts': 'cs_potts',
+                        'graph_tv': 'graphtv'}.get(method, method)
+            search['seed'] = study_seed(info['dataset'], info['split'], info['seed'],
+                                        sigma, draw, original, tag=tag)
             params, probability, _, history = tune(method, evaluate, config['methods'][method],
                                                     val, data['y'][val], search)
             accuracy = float(probability[val].argmax(1).eq(data['y'][val]).double().mean())
             saved[method] = {'parameters': params, 'validation_accuracy': accuracy, 'search': history}
-            output.write_text(json.dumps(selections, indent=2) + '\n')
+            temporary = output.with_suffix('.json.tmp')
+            temporary.write_text(json.dumps(selections, indent=2) + '\n')
+            temporary.replace(output)
             print(f"  {stage}: {path.stem} {method}, validation {accuracy:.4f}", flush=True)
     return selections
 
@@ -174,7 +273,7 @@ def applicable(stage, info):
     if stage in ('main', 'transfer'):
         return True
     if stage == 'timing':
-        return info['split'] == 0 and info['seed'] == 1
+        return info['split'] == 0 and info['seed'] == 0
     if info['backbone'] != 'mlp':
         return False
     if stage == 'depth':
@@ -184,7 +283,7 @@ def applicable(stage, info):
     if stage == 'calibration':
         return info['dataset'] in CALIBRATION_DATASETS
     if stage == 'per_node':
-        return info['seed'] == 1 and info['dataset'] != 'ogbn-products'
+        return info['seed'] == 0 and info['dataset'] != 'ogbn-products'
     return True
 
 
@@ -195,7 +294,7 @@ def median_settings(run, dataset):
         for name, context in json.loads(path.read_text()).items():
             if context_info(Path(name))[0] != 2:
                 continue
-            for method in ('appnp', 'ppr', 'pts', 'cs'):
+            for method in ('appnp', 'ppr', 'pts', 'cs', 'cs_pts'):
                 if method in context:
                     for key, value in context[method]['parameters'].items():
                         values.setdefault(method, {}).setdefault(key, []).append(value)
@@ -212,7 +311,9 @@ def forward_callback(folder, graph, data_root, device):
     saved = torch.load(folder / 'checkpoint.pt', weights_only=True)
     x = preprocess(dataset['x'], split['train_index'], saved['preprocessing']).to(device)
     model = load_checkpoint(folder / 'checkpoint.pt', graph['edge_index'], device)
-    return lambda: model(x)
+    forward = lambda: model(x)
+    forward.training_seconds = saved.get('training_seconds')
+    return forward
 
 
 def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=8,
@@ -220,9 +321,7 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
     run = Path(run)
     config = yaml.safe_load(CONFIG.read_text()) if config is None else config
     stages = list(STAGES) if 'all' in stages else list(stages)
-    settings_path = run / 'refinement.yaml'
-    run.mkdir(parents=True, exist_ok=True)
-    settings_path.write_text(yaml.safe_dump(config, sort_keys=False))
+    check_settings(run, config, write=True)
     torch.set_num_threads(threads)
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     units = [p for p in sorted(run.glob('*/*/split_*/seed_*')) if (p / 'checkpoint.pt').exists()]
@@ -233,15 +332,15 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
     for folder in units:
         info = unit_info(folder)
         print('/'.join(str(info[k]) for k in ('dataset', 'backbone', 'split', 'seed')), flush=True)
-        graph = torch.load(folder.parents[2] / 'graph.pt', weights_only=True)
-        split = torch.load(folder / 'split.pt', weights_only=True)
-        operators = {}
         wanted = [stage for stage in stages if applicable(stage, info)]
         if not wanted:
             continue
+        graph = torch.load(folder.parents[2] / 'graph.pt', weights_only=True)
+        split = torch.load(folder / 'split.pt', weights_only=True)
+        operators = {}
         needs_main = any(stage not in ('depth', 'energy') for stage in wanted)
         main = select_methods(folder, 'main', graph, split, config, device, operators) if needs_main else {}
-        if needs_main:
+        if needs_main and not main_results_complete(folder, main):
             write_results(folder, 'main', refinement_rows(folder, 'main', main, main,
                                                          graph, split, device, operators))
         for stage in wanted:
@@ -273,12 +372,14 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
             split = torch.load(folder / 'split.pt', weights_only=True)
             paths = context_files(folder, 'timing')
             if not paths:
-                raise FileNotFoundError('Timing needs sigma=2, draw=1 predictions.')
-            data = load_context(paths[0], graph, split, device)
+                raise FileNotFoundError('Timing needs sigma=2, draw=0 predictions.')
+            timing_device = device if info['dataset'].startswith('ogbn-') else 'cpu'
+            torch.set_num_threads(8)
+            data = load_context(paths[0], graph, split, timing_device)
             params = median_settings(run, info['dataset']) if info['backbone'] == 'mlp' else {}
-            forward = forward_callback(folder, graph, data_root, device)
+            forward = forward_callback(folder, graph, data_root, timing_device)
             records = diagnostic_rows('timing', data, {'methods': params}, forward=forward, timing_params=params)
-            write_results(folder, 'timing', [{**info, 'sigma': 2., 'draw': 1, **row} for row in records])
+            write_results(folder, 'timing', [{**info, 'sigma': 2., 'draw': 0, **row} for row in records])
 
 
 def main():
