@@ -12,9 +12,9 @@ import torch
 import yaml
 
 from .methods.baselines import LABEL_AWARE, predict
-from .diagnostics import ALPHAS, DEPTHS, diagnostic_rows, metrics
+from .diagnostics import diagnostic_rows, metrics
 from .selection import tune
-from .seeds import MODEL_SEEDS, NOISY_DRAWS, SPLIT_SEED_BASE, STREAM_TAG, TRAINING_SEED_BASE, study_seed
+from .seeds import study_seed
 
 MAIN_DATASETS = ('wikics', 'cora-tag', 'pubmed-tag', 'tape-arxiv23', 'ogbn-arxiv',
                  'ogbn-products', 'ele-photo', 'ele-computers', 'books-history')
@@ -22,91 +22,6 @@ CALIBRATION_DATASETS = MAIN_DATASETS[:6]
 STAGES = ('main', 'external', 'mass', 'transfer', 'depth', 'energy',
           'calibration', 'per_node', 'timing')
 CONFIG = Path(__file__).resolve().parents[1] / 'configs' / 'paper.yaml'
-
-
-def validate_recorded_settings(config):
-    """Declared fixed protocol values must agree with the implemented paper recipe."""
-    fixed = {
-        'split_seed_base': SPLIT_SEED_BASE, 'training_seed_base': TRAINING_SEED_BASE,
-        'corruption_tag': STREAM_TAG,
-        'datasets': {'main': list(MAIN_DATASETS), 'controls': ['roman-empire', 'amazon-ratings']},
-        'architectures': ['mlp', 'gcn', 'sage'],
-        'units': {'splits': 10, 'model_seeds': list(MODEL_SEEDS), 'draws': len(NOISY_DRAWS)},
-        'corruption': {'sigmas': [0., .5, 1., 1.5, 2.], 'node_fraction': 1.},
-        'depth': {'sigmas': [0., 2.], 'alphas': list(ALPHAS), 'steps': list(DEPTHS),
-                  'etas': [16., 200.]},
-        'energy': {'dataset': 'wikics', 'sigma': 2., 'alpha': .1, 'eta': 16., 'steps': 20},
-        'calibration': {'datasets': list(CALIBRATION_DATASETS)},
-        'per_node': {'model_seed': 0, 'draw': 0},
-        'timing': {'split': 0, 'model_seed': 0, 'warmup': 2, 'repeats': 5,
-                   'forward_warmup': 1, 'forward_repeats': 3,
-                   'fixed_warmup': 1, 'fixed_repeats': 3,
-                   'fixed_steps': 100, 'alpha': .1, 'eta': 16., 'cpu_threads': 8},
-        'exceptions': {'official_split': ['ogbn-arxiv', 'ogbn-products'],
-                       'products_external_draws': 2, 'products_mass_draws': 2,
-                       'graph_tv_excluded': ['ogbn-products'],
-                       'per_node_excluded': ['ogbn-products']},
-    }
-
-    def compare(actual, expected, prefix=''):
-        for key, value in expected.items():
-            if key not in actual:
-                continue
-            name = prefix + key
-            if isinstance(value, dict) and isinstance(actual[key], dict):
-                compare(actual[key], value, name + '.')
-            elif actual[key] != value:
-                raise ValueError(f'Frozen paper protocol: {name} is fixed at {value!r}. '
-                                 'Use individual-run CLI options for subset experiments.')
-
-    if not isinstance(config, dict):
-        raise ValueError('Experiment configuration must be a mapping')
-    compare(config, fixed)
-
-
-def check_settings(run, config, *, write=False):
-    """Reject incompatible cached studies before changing their recorded settings."""
-    validate_recorded_settings(config)
-    run = Path(run)
-    path = run / 'refinement.yaml'
-    if path.exists():
-        if yaml.safe_load(path.read_text()) != config:
-            raise ValueError('Experiment settings differ from this output directory, including '
-                             'the search budget. Choose a new output directory.')
-    elif any(run.glob('*/*/split_*/seed_*/*.selections.json')):
-        raise ValueError('Cached selections have no recorded experiment settings. '
-                         'Choose a new output directory.')
-    if write and not path.exists():
-        run.mkdir(parents=True, exist_ok=True)
-        temporary = path.with_suffix('.yaml.tmp')
-        temporary.write_text(yaml.safe_dump(config, sort_keys=False))
-        temporary.replace(path)
-
-
-def main_results_complete(folder, selections):
-    """Reuse main results only when every saved context and method is present."""
-    expected = {}
-    for path in context_files(folder):
-        sigma, draw = context_info(path)
-        if path.stem not in selections:
-            return False
-        parameters = selected_parameters(selections, path.stem)
-        for method, settings in {'anchor': {}, **parameters}.items():
-            expected[(sigma, draw, method)] = settings
-        if 'pts' in parameters:
-            expected[(sigma, draw, 'reaction_off')] = dict(parameters['pts'], eta=0.)
-    found = {}
-    for path in folder.glob('main.*.csv'):
-        with path.open(newline='') as handle:
-            for row in csv.DictReader(handle):
-                try:
-                    key = (float(row['sigma']), int(row['draw']), row['method'])
-                    if key in found:
-                        return False
-                    found[key] = json.loads(row['parameters'])
-                except (KeyError, TypeError, ValueError):
-                    return False
-    return bool(expected) and expected == found
 
 
 def unit_info(folder):
@@ -321,7 +236,6 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
     run = Path(run)
     config = yaml.safe_load(CONFIG.read_text()) if config is None else config
     stages = list(STAGES) if 'all' in stages else list(stages)
-    check_settings(run, config, write=True)
     torch.set_num_threads(threads)
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     units = [p for p in sorted(run.glob('*/*/split_*/seed_*')) if (p / 'checkpoint.pt').exists()]
@@ -340,7 +254,7 @@ def run_experiments(run, stages=('all',), *, config=None, device='cpu', threads=
         operators = {}
         needs_main = any(stage not in ('depth', 'energy') for stage in wanted)
         main = select_methods(folder, 'main', graph, split, config, device, operators) if needs_main else {}
-        if needs_main and not main_results_complete(folder, main):
+        if needs_main:
             write_results(folder, 'main', refinement_rows(folder, 'main', main, main,
                                                          graph, split, device, operators))
         for stage in wanted:

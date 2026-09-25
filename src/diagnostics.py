@@ -8,7 +8,7 @@ import time
 import numpy as np
 import torch
 
-from .methods.baselines import LABEL_AWARE, predict
+from .methods.baselines import predict
 from .methods.pts import graph_operator, normalize, sharpen
 
 DEPTHS = (1, 2, 3, 5, 10, 20, 40, 100)

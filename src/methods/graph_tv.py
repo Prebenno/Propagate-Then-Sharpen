@@ -48,21 +48,6 @@ class GraphTVOperator:
         for start in range(0, self.num_edges, self.chunk_edges):
             yield slice(start, min(start + self.chunk_edges, self.num_edges))
 
-    #Compute weighted differences between neighbors.
-    def gradient(self, probabilities):
-        differences = torch.empty(
-            (self.num_edges, probabilities.shape[1]),
-            dtype=probabilities.dtype,
-            device=self.device,
-        )
-        for edge_slice in self.chunks():
-            source = self.source[edge_slice]
-            target = self.target[edge_slice]
-            differences[edge_slice] = self.weights[edge_slice, None] * (
-                probabilities[source] - probabilities[target]
-            )
-        return differences
-
     #Add weighted dual values back to the nodes.
     def adjoint(self, dual, *, accumulation_dtype=None):
         dtype = accumulation_dtype or dual.dtype

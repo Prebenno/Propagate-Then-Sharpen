@@ -3,13 +3,11 @@ Train backbones or optionally reuse pretrained models and saved Q/Z
 """
 
 import argparse
-import filecmp
 import shutil
 from pathlib import Path
 import time
 
 import torch
-import yaml
 
 from src.backbones import Backbone, build_adjacency, preprocess, train
 from src.data import DATASETS, load_dataset, preflight_inputs
@@ -31,25 +29,6 @@ def _copy(source, path):
     temporary = path.with_name(path.name + ".tmp")
     shutil.copyfile(source, temporary)
     temporary.replace(path)
-
-
-def _check_generation_settings(args, datasets, seeds, pretrained_root):
-    settings = dict(protocol="recorded-paper-streams-v1", datasets=list(datasets),
-                    backbones=list(args.backbones), seeds=list(seeds), splits=args.splits,
-                    epochs=args.epochs, data_root=str(Path(args.data_root).resolve()),
-                    pretrained=None if pretrained_root is None else str(Path(pretrained_root).resolve()))
-    path = args.output / "generation.yaml"
-    if path.exists():
-        previous = yaml.safe_load(path.read_text())
-        if not isinstance(previous, dict):
-            raise ValueError(f"Invalid generation settings: {path}")
-        if previous != settings:
-            differences = [key for key in settings if previous.get(key) != settings[key]]
-            raise ValueError("Existing generation settings differ: " + ", ".join(differences)
-                             + ". Use a new output directory.")
-    elif any(args.output.glob("*/*/split_*/seed_*/checkpoint.pt")):
-        raise ValueError("Existing checkpoints have no generation settings. Use a new output directory.")
-    return path, settings
 
 
 def generate(args):
@@ -74,19 +53,13 @@ def generate(args):
                       for split in range(1 if dataset.startswith("ogbn-") else args.splits)]
         missing_files = [str(path) for path in requested if not path.is_file()]
         if missing_files:
-            raise FileNotFoundError("Missing pretrained files: " + ", ".join(missing_files) +
-                                    ". Run python pretrained.py to list available models.")
+            raise FileNotFoundError("Missing pretrained files: " + ", ".join(missing_files))
     preflight_inputs(datasets, args.data_root)
-    settings_path, settings = _check_generation_settings(args, datasets, seeds, pretrained_root)
     requested_sigmas = args.sigmas if args.sigmas is not None else ([0.] if pretrained_root is not None else [0., .5, 1., 1.5, 2.])
     sigmas = sorted(set(requested_sigmas) | {0.})
     if any(sigma < 0 for sigma in sigmas) or any(draw < 0 for draw in args.draws):
         raise ValueError("Noise levels and noisy draw IDs must be nonnegative")
     args.output.mkdir(parents=True, exist_ok=True)
-    if not settings_path.exists():
-        temporary = settings_path.with_suffix(".yaml.tmp")
-        temporary.write_text(yaml.safe_dump(settings, sort_keys=True))
-        temporary.replace(settings_path)
     for dataset in datasets:
         draws = args.draws
         contexts = [(0., CLEAN_DRAW)] + [(sigma, draw) for draw in draws for sigma in sigmas if sigma > 0]
@@ -95,10 +68,6 @@ def generate(args):
         dataset_dir = args.output / dataset
         dataset_dir.mkdir(parents=True, exist_ok=True)
         graph_path = dataset_dir / "graph.pt"
-        if graph_path.exists():
-            saved_graph = torch.load(graph_path, map_location="cpu", weights_only=True)
-            if not torch.equal(saved_graph["edge_index"], edges) or not torch.equal(saved_graph["y"], y):
-                raise ValueError(f"Existing run uses different graph/labels: {graph_path}")
         if not graph_path.exists():
             _save({"edge_index": edges, "y": y}, graph_path)
         for kind in args.backbones:
@@ -114,19 +83,6 @@ def generate(args):
                     split_path = unit / "split.pt"
                     source = None if pretrained_root is None else unit_directory(
                         pretrained_root, dataset, kind, split, seed)
-                    if any(unit.glob("s*_d*.pt")):
-                        if not checkpoint_path.exists():
-                            raise FileNotFoundError(f"{unit} contains predictions but its frozen checkpoint is missing")
-                        if source is not None and not split_path.exists():
-                            raise FileNotFoundError(f"Existing predictions have no saved split: {unit}")
-                    if source is not None:
-                        if checkpoint_path.exists() and not filecmp.cmp(
-                                checkpoint_path, source / "checkpoint.pt", shallow=False):
-                            raise ValueError(f"Existing checkpoint differs from pretrained weights: {unit}. Use a new output directory.")
-                        if split_path.exists():
-                            saved_indices = torch.load(split_path, map_location="cpu", weights_only=True)
-                            if any(not torch.equal(saved_indices[key], value) for key, value in indices.items()):
-                                raise ValueError(f"Existing run uses different splits: {unit}")
                     unit.mkdir(parents=True, exist_ok=True)
                     started = time.monotonic()
                     copied = 0
