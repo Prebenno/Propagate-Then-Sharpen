@@ -47,9 +47,9 @@ bash run_all.sh --device cuda
 
 1. `train` – MLP, GCN and GraphSAGE for every dataset × split × model seed (828 units), saving checkpoints and clean `Q`/`Z`.
 2. `predictions` – corrupted features through the frozen checkpoints, σ ∈ {0.5, 1, 1.5, 2}, three noise draws.
-3. `main` – APPNP, PPR-Prob, PtS and Reaction OFF, 250 Optuna trials per unit, severity and draw (Tables 1, 2, 7, 10, 14).
+3. `main` – APPNP, PPR-Prob, PtS and Reaction OFF, 250 Optuna trials per unit, severity and draw
 4. `external`, `mass` – LAME-Graph, Graph-TV and the row-normalised variants (Tables 8, 9, 16).
-5. `transfer`, `depth`, `energy`, `calibration`, `per_node` – data for Figures 3, 4, 6 and Tables 17, 18, 20.
+5. `transfer`, `depth`, `energy`, `calibration`, `per_node` - statistics, ablations and data
 6. `timing` – Table 19, on the checkpoints from step 1.
 
 

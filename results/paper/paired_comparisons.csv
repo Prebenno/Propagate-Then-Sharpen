@@ -142,61 +142,6 @@ PtS - APPNP,wikics,0.5,0.4904699466012962,0.4157491420169931,splits
 PtS - APPNP,wikics,1.0,0.8097219846835035,0.59274195110604,splits
 PtS - APPNP,wikics,1.5,2.1893468635387574,0.9313109635517944,splits
 PtS - APPNP,wikics,2.0,4.176500769625448,1.750877796811686,splits
-PtS - APPNP (clean selection),amazon-ratings,0.0,1.1165543988569095,0.3474828904224826,splits
-PtS - APPNP (clean selection),amazon-ratings,0.5,0.8979156744006718,0.2644583148169163,splits
-PtS - APPNP (clean selection),amazon-ratings,1.0,0.1168038828785922,0.2034283964759911,splits
-PtS - APPNP (clean selection),amazon-ratings,1.5,0.2109274001496901,0.1485943828508725,splits
-PtS - APPNP (clean selection),amazon-ratings,2.0,0.247896396089905,0.2579033385125751,splits
-PtS - APPNP (clean selection),books-history,0.0,0.2860008022462904,0.2263972100615578,splits
-PtS - APPNP (clean selection),books-history,0.5,0.2880064179703168,0.2024701569248229,splits
-PtS - APPNP (clean selection),books-history,1.0,0.3274501938761863,0.3354683964068661,splits
-PtS - APPNP (clean selection),books-history,1.5,0.2418772563176897,0.6359293013561167,splits
-PtS - APPNP (clean selection),books-history,2.0,0.0028078620136391,0.9499858550138808,splits
-PtS - APPNP (clean selection),cora-tag,0.0,3.579790511398643,1.230384649574458,splits
-PtS - APPNP (clean selection),cora-tag,0.5,3.2840418977202708,1.438398559353248,splits
-PtS - APPNP (clean selection),cora-tag,1.0,3.2059971246662564,1.7835051835291071,splits
-PtS - APPNP (clean selection),cora-tag,1.5,3.0745532963647566,2.442068253404488,splits
-PtS - APPNP (clean selection),cora-tag,2.0,2.9944547134935293,2.5203778955898137,splits
-PtS - APPNP (clean selection),ele-computers,0.0,4.744162940884252,0.961224330780614,splits
-PtS - APPNP (clean selection),ele-computers,0.5,4.812564484695633,0.9510052093572188,splits
-PtS - APPNP (clean selection),ele-computers,1.0,5.41652336734304,1.1983644217677674,splits
-PtS - APPNP (clean selection),ele-computers,1.5,6.187410039869056,1.2248148983910492,splits
-PtS - APPNP (clean selection),ele-computers,2.0,7.0074006139579925,1.3169680770174643,splits
-PtS - APPNP (clean selection),ele-photo,0.0,3.043523208932079,0.6331443958324438,splits
-PtS - APPNP (clean selection),ele-photo,0.5,3.067760203085336,0.8127701685187831,splits
-PtS - APPNP (clean selection),ele-photo,1.0,3.2736023524817064,1.0091120727153196,splits
-PtS - APPNP (clean selection),ele-photo,1.5,3.462214411247804,1.2653421626945536,splits
-PtS - APPNP (clean selection),ele-photo,2.0,3.485877069046716,1.435172667424906,splits
-PtS - APPNP (clean selection),ogbn-arxiv,0.0,0.4595052431605739,0.5062182582368485,seed x draw
-PtS - APPNP (clean selection),ogbn-arxiv,0.5,0.9478152926088262,0.5352391185080264,seed x draw
-PtS - APPNP (clean selection),ogbn-arxiv,1.0,4.991004213274444,0.3217331741111482,seed x draw
-PtS - APPNP (clean selection),ogbn-arxiv,1.5,6.499370180624427,3.232395144152664,seed x draw
-PtS - APPNP (clean selection),ogbn-arxiv,2.0,4.383588575922382,4.138710529373459,seed x draw
-PtS - APPNP (clean selection),ogbn-products,0.0,1.5847066388142188,0.2379496440528773,seed x draw
-PtS - APPNP (clean selection),ogbn-products,0.5,-0.8810653415416622,0.818092333976144,seed x draw
-PtS - APPNP (clean selection),ogbn-products,1.0,-4.980078391113001,0.3255490471288561,seed x draw
-PtS - APPNP (clean selection),ogbn-products,1.5,-1.9280122989369468,0.4525024011627441,seed x draw
-PtS - APPNP (clean selection),ogbn-products,2.0,-1.5201262748697528,0.2886891628527884,seed x draw
-PtS - APPNP (clean selection),pubmed-tag,0.0,0.8299526707234612,0.6363273594388227,splits
-PtS - APPNP (clean selection),pubmed-tag,0.5,0.8243182330403416,0.6780408423944245,splits
-PtS - APPNP (clean selection),pubmed-tag,1.0,0.6871196754563897,0.9500963049212748,splits
-PtS - APPNP (clean selection),pubmed-tag,1.5,0.4546991210277213,1.3971551166909872,splits
-PtS - APPNP (clean selection),pubmed-tag,2.0,0.1470588235294124,1.6799596662697582,splits
-PtS - APPNP (clean selection),roman-empire,0.0,-0.1125082726671085,0.134481403640175,splits
-PtS - APPNP (clean selection),roman-empire,0.5,0.0321102041816799,0.0938328277582555,splits
-PtS - APPNP (clean selection),roman-empire,1.0,0.1926612250900799,0.2318336692911338,splits
-PtS - APPNP (clean selection),roman-empire,1.5,0.2171728313356373,0.2544179307216536,splits
-PtS - APPNP (clean selection),roman-empire,2.0,0.1715812437189009,0.173400245375981,splits
-PtS - APPNP (clean selection),tape-arxiv23,0.0,0.1879712811631858,0.0994111404028639,splits
-PtS - APPNP (clean selection),tape-arxiv23,0.5,0.0450986759028759,0.1470713747909585,splits
-PtS - APPNP (clean selection),tape-arxiv23,1.0,0.0186407860398555,0.316814305730855,splits
-PtS - APPNP (clean selection),tape-arxiv23,1.5,0.1272383976139792,0.6100453640174058,splits
-PtS - APPNP (clean selection),tape-arxiv23,2.0,-0.0387247297086023,0.7537152537274941,splits
-PtS - APPNP (clean selection),wikics,0.0,0.6430648195655885,0.5031681481987285,splits
-PtS - APPNP (clean selection),wikics,0.5,0.7888185774281212,0.7667913760522169,splits
-PtS - APPNP (clean selection),wikics,1.0,1.39292704710868,1.368591009251613,splits
-PtS - APPNP (clean selection),wikics,1.5,2.739296505330369,2.114205647560686,splits
-PtS - APPNP (clean selection),wikics,2.0,4.031887197613211,2.7142199625935843,splits
 PtS - Graph-TV,amazon-ratings,0.0,0.3851126080152411,0.3875649119181117,splits
 PtS - Graph-TV,amazon-ratings,2.0,0.0437731056224628,0.0732984908920021,splits
 PtS - Graph-TV,books-history,0.0,-0.0910549538708371,0.2164087350899879,splits
@@ -205,7 +150,7 @@ PtS - Graph-TV,cora-tag,0.0,2.920517560073936,0.6567054883289828,splits
 PtS - Graph-TV,cora-tag,2.0,3.579790511398644,1.6102023234789211,splits
 PtS - Graph-TV,ele-computers,0.0,3.639420688601015,0.7746369448772449,splits
 PtS - Graph-TV,ele-computers,2.0,9.918605984179752,1.0091154487860872,splits
-PtS - Graph-TV,ele-photo,0.0,2.8784589406940277,0.4313141363085195,splits
+PtS - Graph-TV,ele-photo,0.0,2.878458940694028,0.4313141363085195,splits
 PtS - Graph-TV,ele-photo,2.0,4.361854876689985,0.9999879032111476,splits
 PtS - Graph-TV,ogbn-arxiv,0.0,0.754411593248705,0.694974645692551,seed x draw
 PtS - Graph-TV,ogbn-arxiv,2.0,5.363409208850848,1.0061095651440342,seed x draw
