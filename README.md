@@ -1,4 +1,7 @@
 # Propagate, then Sharpen
+
+<img width="1418" height="471" alt="image" src="https://github.com/user-attachments/assets/5bafb559-0687-4287-b830-43a6747309a0" />
+
 This repo contains the code nessesary to reproduce the results of the paper. It runs post hoc refinement of frozen node predictions and containts the three backbones, all experiments in the paper and the CSVs used for the tables in the paper.
 
 The method itself is contained in `src/methods/pts.py `
