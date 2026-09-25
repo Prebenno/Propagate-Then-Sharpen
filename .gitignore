@@ -1,9 +1,19 @@
 __pycache__/
 *.pyc
 .venv/
-data/
+.pytest_cache/
 runs/
 *.pt
 !pretrained/**/*.pt
-.pytest_cache/
 pretrained/ogbn-products/**/*.pt
+#Allow -tag datasets to be uploaded so no need to download from google docx
+data/*
+!data/cora-tag/
+!data/pubmed-tag/
+!data/tape-arxiv23/
+data/cora-tag/*
+data/pubmed-tag/*
+data/tape-arxiv23/*
+!data/cora-tag/graph.pt
+!data/pubmed-tag/graph.pt
+!data/tape-arxiv23/graph.pt

@@ -1,4 +1,6 @@
-"""Train backbones or reuse pretrained models and saved Q/Z."""
+"""
+Train backbones or optionally reuse pretrained models and saved Q/Z
+"""
 
 import argparse
 import filecmp
@@ -31,10 +33,7 @@ def _copy(source, path):
     temporary.replace(path)
 
 
-#Reuse noise draws across severities and backbones.
 def _check_generation_settings(args, datasets, seeds, pretrained_root):
-    # Contexts may be extended from clean-only to noisy predictions. The frozen
-    # model recipe and unit identities must stay unchanged when reusing them.
     settings = dict(protocol="recorded-paper-streams-v1", datasets=list(datasets),
                     backbones=list(args.backbones), seeds=list(seeds), splits=args.splits,
                     epochs=args.epochs, data_root=str(Path(args.data_root).resolve()),
@@ -140,7 +139,7 @@ def generate(args):
                             name = context_name(sigma, draw)
                             saved = source / name
                             if sigma == 0 and not saved.is_file():
-                                saved = source / "s0_d0.pt"  # Original follow-up bundle convention.
+                                saved = source / "s0_d0.pt"  
                             if not (unit / name).exists() and saved.is_file():
                                 _copy(saved, unit / name)
                                 copied += 1

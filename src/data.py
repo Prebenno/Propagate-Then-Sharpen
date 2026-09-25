@@ -23,7 +23,7 @@ CSTAG = {"ele-photo": "Photo", "ele-computers": "Computers", "books-history": "H
 FEATURES = {
     "cora-tag": "locally encoded frozen RoBERTa-base CLS, 512 tokens (768 dimensions)",
     "pubmed-tag": "locally encoded frozen RoBERTa-base CLS, 512 tokens (768 dimensions)",
-    "tape-arxiv23": "the paper's 300-dimensional features (encoder not recorded)",
+    "tape-arxiv23": "TAPE's published dataset/arxiv_2023/graph.pt (300-dimensional features, unchanged)",
     "ele-photo": "CS-TAG Photo_roberta_base_512_cls.npy",
     "ele-computers": "CS-TAG Computers_roberta_base_512_cls.npy",
     "books-history": "CS-TAG History_roberta_base_512_cls.npy",
@@ -126,7 +126,7 @@ def load_dataset(name, root, splits=10):
 
 
 def required_files(name, root):
-    """Processed inputs required for an offline run; no checksums or manifest."""
+    """Processed inputs required for an offline run."""
     directory = Path(root) / name
     if name in CUSTOM:
         return [directory / "graph.pt"]
@@ -206,7 +206,10 @@ def prepare_datasets(names, root, source=None, splits=10):
     missing = [str(path) for name in names if name in CUSTOM
                for path in required_files(name, root) if not path.is_file()]
     if missing:
-        raise FileNotFoundError("Supply paper-data.zip for these exact feature inputs:\n" + "\n".join(missing))
+        raise FileNotFoundError(
+            "Missing feature inputs. Cora-TAPE, PubMed-TAPE and TAPE-Arxiv23 ship with the repository under "
+            "data/<dataset>/graph.pt; the CS-TAG graphs are fetched with `python -m src.data --cstag`:\n"
+            + "\n".join(missing))
     for name in names:
         data = load_dataset(name, root, splits)
         _validate_dataset(name, data)
