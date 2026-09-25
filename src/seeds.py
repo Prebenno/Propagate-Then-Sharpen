@@ -1,4 +1,4 @@
-"""Recorded paper random streams (hashing here identifies RNG streams, not files)."""
+"""Recorded paper random streams"""
 
 import hashlib
 import random

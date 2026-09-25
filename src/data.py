@@ -20,14 +20,7 @@ CONTROLS = ("roman-empire", "amazon-ratings")
 DATASETS = MAIN + CONTROLS
 CUSTOM = ("cora-tag", "pubmed-tag", "tape-arxiv23", "ele-photo", "ele-computers", "books-history")
 CSTAG = {"ele-photo": "Photo", "ele-computers": "Computers", "books-history": "History"}
-FEATURES = {
-    "cora-tag": "locally encoded frozen RoBERTa-base CLS, 512 tokens (768 dimensions)",
-    "pubmed-tag": "locally encoded frozen RoBERTa-base CLS, 512 tokens (768 dimensions)",
-    "tape-arxiv23": "TAPE's published dataset/arxiv_2023/graph.pt (300-dimensional features, unchanged)",
-    "ele-photo": "CS-TAG Photo_roberta_base_512_cls.npy",
-    "ele-computers": "CS-TAG Computers_roberta_base_512_cls.npy",
-    "books-history": "CS-TAG History_roberta_base_512_cls.npy",
-}
+
 
 
 def _extract(value):
@@ -109,7 +102,7 @@ def load_dataset(name, root, splits=10):
     if name in CUSTOM:
         path = root / name / "graph.pt"
         if not path.exists():
-            raise FileNotFoundError(f"Missing {path}. Supply {FEATURES[name]} in a graph.pt with x, y and edge_index.")
+            raise FileNotFoundError(f"Missing {path}")
         data = _read(path)
         indices = _random_splits(len(data["y"]), splits, name)
     else:
@@ -202,7 +195,7 @@ def prepare_datasets(names, root, source=None, splits=10):
                     temporary.replace(destination)
         else:
             _extract_archive(source, root)
-    # Detect absent paper-only embeddings before attempting any downloads.
+    
     missing = [str(path) for name in names if name in CUSTOM
                for path in required_files(name, root) if not path.is_file()]
     if missing:

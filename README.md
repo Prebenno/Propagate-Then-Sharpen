@@ -11,7 +11,7 @@ We used Python 3.12 on Linux on a HPC cluster. `pip install -r requirements.txt`
 ## Most important files
 
 - `src/methods/baselines.py` – APPNP, PPR-Prob, LAME-Graph, Correct & Smooth, Logit-Sharp and the row-normalised variants. `src/methods/graph_tv.py` – Graph-TV.
-- `src/data.py` loading, symmetrisation and splits, `backbones.py` the MLP, GCN and GraphSAGE; `selection.py` the Optuna search and the Graph-TV grid,  `diagnostics.py` accuracy, calibration, energies, per-node statistics and runtime.
+- `src/data.py` loading, symmetrisation and splits, `backbones.py` the MLP, GCN and GraphSAGE, `selection.py` the Optuna search and the Graph-TV grid,  `diagnostics.py` accuracy, calibration, energies, per-node statistics and runtime.
 - `pretrained/` – MLP checkpoints, split indices and clean `Q`/`Z` for WikiCS, Cora-TAPE, PubMed-TAPE and TAPE-Arxiv23, splits 0–2, model seeds 3 and 4. These come from a later rerun, so they are not the exact checkpoints behind the tables and numbers will differ slightly.
 - `results/paper/` – the CSV exports behind the tables and figures.
 - `configs/paper.yaml` – the whole protocol in one place: datasets, splits, seeds, draws, severities, search spaces and budgets.
@@ -52,9 +52,7 @@ bash run_all.sh --device cuda
 5. `transfer`, `depth`, `energy`, `calibration`, `per_node` – data for Figures 3, 4, 6 and Tables 17, 18, 20.
 6. `timing` – Table 19, on the checkpoints from step 1.
 
-Each unit writes `<stage>.<access>.csv` under `runs/paper/<dataset>/<backbone>/split_<s>/seed_<k>/`, one row per severity, draw and method. Paper numbers average draws within a seed, seeds within a split, then splits; the reported SD is over splits, or over seed and draw for the single-split OGB graphs. Dataset means weight the nine main graphs equally and never include the two heterophilic controls. Differences between methods are taken within a unit, severity and draw before averaging.
 
-We did not run this as one job. The stages were spread over several GPU and CPU nodes on a cluster and submitted separately, rerunning the same command skips every unit whose checkpoint, predictions or selections already exist. Almost all of the compute goes to Graph-TV, roughly 60% of the total even with less tuning: it is a full primal–dual solve per candidate λ for every unit, severity and draw. APPNP, PPR-Prob and PtS are quick by comparison, milliseconds per propagation step (Table 19), the `main` stage is long only because of the 250 Optuna trials per unit, severity and draw.
 
 ## Data sources
 

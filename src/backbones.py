@@ -56,9 +56,6 @@ class Backbone(nn.Module):
         dimensions = [in_features] + [recipe["hidden"]] * (recipe["layers"] - 1) + [out_features]
         pairs = list(zip(dimensions, dimensions[1:]))
         if self.kind != "mlp" and not recipe.get("products_sparse", self.products_gcn):
-            # Construct the recorded PyG layers to preserve parameter initialization
-            # and RNG consumption, while keeping the existing sparse forwards and
-            # checkpoint names. No PyG message-passing tensors are materialized.
             from torch_geometric.nn import GCNConv, SAGEConv
             if self.kind == "gcn":
                 convs = [GCNConv(a, b, cached=True) for a, b in pairs]
