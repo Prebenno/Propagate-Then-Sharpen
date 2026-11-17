@@ -1,4 +1,6 @@
-"""Run revision experiments on saved predictions."""
+"""Revision experiments on frozen predictions.
+"""
+from __future__ import annotations
 
 import argparse
 import copy
@@ -7,7 +9,6 @@ import json
 from pathlib import Path
 
 import numpy as np
-import optuna
 import torch
 import yaml
 
@@ -45,9 +46,9 @@ def _operator(data, operators):
     return operators["sym"]
 
 
-#Fit temperature by validation NLL.
 @torch.no_grad()
 def fit_temperature(probability, labels, validation):
+    """Fit temperature by validation NLL."""
     if len(validation) == 0:
         raise ValueError("Temperature fitting requires validation nodes")
     log_p = probability[validation].clamp_min(1e-12).log()
@@ -67,9 +68,9 @@ def fit_temperature(probability, labels, validation):
     return float(best)
 
 
-#Use clean-selected settings and fit temperature on clean validation.
 @torch.no_grad()
 def calibration_rows(clean_data, target_data, settings, operators):
+    """Use clean-selected settings and fit temperature on clean validation."""
     rows = []
     for method, params in settings.items():
         clean = _predict(method, params, clean_data, operators)
@@ -130,10 +131,10 @@ def _trajectory(data, operator, method, alpha, strength, steps, record_at):
             yield step, "reaction", to_field(state)
 
 
-#Select strength by mean validation accuracy across depths.
-#Ties within 1e-12 use the weaker strength.
 @torch.no_grad()
 def depth_rows(data, config, operators):
+    """Select strength by mean validation accuracy across depths. Ties use weaker strenght
+    """
     cfg = _section(config, "depth")
     steps = sorted(set(int(k) for k in cfg.get("steps", DEPTHS)))
     if not steps or steps[0] < 1:
@@ -166,9 +167,9 @@ def depth_rows(data, config, operators):
     return rows
 
 
-#Symmetric-kernel interaction traces, excluding the anchor term.
 @torch.no_grad()
 def energy_rows(data, config, operators):
+    """Symmetric-kernel interaction traces, excluding the anchor term."""
     cfg = _section(config, "energy")
     steps = int(cfg.get("steps", 100))
     if steps < 1:
@@ -207,11 +208,10 @@ def _quintiles(values):
     return np.minimum(rank * 5 // max(len(values), 1), 4)
 
 
-#Retrospective homophily groups and paired correction/damage counts.
-#True labels define groups, not predictions. Empty groups have null rates.
-#Confidence uses the saved float32 precision.
 @torch.no_grad()
 def per_node_rows(data, settings, operators, clean_data=None):
+    """Homophily groups and paired correction/damage counts.
+    """
     q = data["q"]
     n_nodes = len(q)
     labels = data["y"].detach().cpu().numpy()
@@ -341,8 +341,8 @@ def evaluate(method, params, data, operators):
                    train_labels=data['train_labels'], operators=operators)
 
 
-#Tune each method on validation nodes.
 def select(context, data, info, methods, config, operators, destination):
+    """Tune each method on validation nodes."""
     search = copy.deepcopy(config['search'])
     revision = config['revision']
     if info['dataset'] == 'ogbn-products':
@@ -398,10 +398,10 @@ def outage_mask(tag, dataset, split, draw, num_nodes):
     return torch.rand(num_nodes, generator=generator, dtype=torch.float32)
 
 
-#Replace whole feature rows with training means.
 @torch.no_grad()
 def outage_rows(folder, graph, split, clean_data, settings, config, device, data_root, operators,
                 draws):
+    """Replace whole feature rows with training means."""
     from .data import load_dataset
     info = unit_info(folder)
     dataset = load_dataset(info['dataset'], data_root, splits=info['split'] + 1)
@@ -435,9 +435,9 @@ def outage_rows(folder, graph, split, clean_data, settings, config, device, data
     return rows
 
 
-#Validation and test-label grid diagnostics.
 @torch.no_grad()
 def products_rows(data, config, operators):
+    """Validation and test-label grid diagnostics."""
     cfg = config.get('products', {})
     alphas = cfg.get('alphas', [0, .0001, .0003, .001, .003, .01, .02, .03, .05, .075,
                               .1, .15, .2, .25, .3, .4, .5, .6, .7, .8, .9, 1])
@@ -468,6 +468,7 @@ def products_rows(data, config, operators):
 
 
 def run(args):
+    import optuna
     optuna.logging.set_verbosity(optuna.logging.WARNING)
     torch.set_num_threads(args.threads)
     config = load_config(args.config)
