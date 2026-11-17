@@ -1,0 +1,5 @@
+outcome,count,denominator
+test_losses,55,648
+flagged_losses,41,55
+missed_losses,14,55
+products_flagged_losses,9,9
